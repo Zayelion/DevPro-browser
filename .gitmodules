@@ -1,0 +1,3 @@
+[submodule "webtcp"]
+	path = webtcp
+	url = https://github.com/yankov/webtcp
