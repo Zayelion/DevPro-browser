@@ -6,10 +6,15 @@ var username 		= 'testBrowser'
 var UID				='123456789123456789'
 function __serverConstruct(internalip, internalport, externalip, externalport){
 
-		this.jsocket = new WebTCP(internalip, internalport);
-		this.socket = this.jsocket.createSocket(externalip, externalport);
+		this.internalip 	= internalip;
+		this.internalport	= internalport;
+		this.externalip		= externalip;
+		this.externalport	= externalip;
+		this.jsocket 		= new WebTCP(internalip, internalport);
+		this.socket 		= this.jsocket.createSocket(externalip, externalport);
+
 		this.socket.on('connect', function(){
-			console.log('[SERVER: Listening]');
+			console.log('[connection established, data has been sent]');
 		});
 		this.socket.on('end', function(data){
 			console.log('Socket is closed')
@@ -17,6 +22,7 @@ function __serverConstruct(internalip, internalport, externalip, externalport){
 		this.socket.on('data', function(data){
 			console.log('Response :'+data)
 		});
+
 
 }
 function Authenticator(username, encodedPassword, UID){
@@ -37,9 +43,9 @@ function Authenticator(username, encodedPassword, UID){
 		return this.finished;
 }
 
-var server = new __serverConstruct('localhost', 9999, '91.250.84.118', 8911);
 
+//Buttys 86.0.24.143 9999
+	var server = new __serverConstruct('localhost', 9999, '86.0.24.143', 9999);
 
 login = new Authenticator(username, encodedPassword, UID);
-server.socket.write(login.details+'\n');
-console.log(login.details);
+server.socket.write(login.details);

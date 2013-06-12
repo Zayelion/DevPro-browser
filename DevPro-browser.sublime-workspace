@@ -1,0 +1,483 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"lo",
+				"login"
+			],
+			[
+				"jso",
+				"jsocket"
+			],
+			[
+				"js",
+				"jsonholder"
+			],
+			[
+				"en",
+				"encodedPassword"
+			],
+			[
+				"s",
+				"socket"
+			],
+			[
+				"pr",
+				"processServer"
+			],
+			[
+				"co",
+				"connect"
+			],
+			[
+				"e",
+				"externalport"
+			],
+			[
+				"in",
+				"internalip"
+			],
+			[
+				"ex",
+				"externalip"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"margin-",
+				"margin-bottom"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"border-",
+				"border-left"
+			],
+			[
+				"ta",
+				"target_path"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"imp",
+				"important"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"ls",
+				"list-style"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 1668,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/main.js",
+			"settings":
+			{
+				"buffer_size": 1447,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Program Files/DevPro/launcher.conf",
+			"settings":
+			{
+				"buffer_size": 3445,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Program Files/DevPro/system.CONF",
+			"settings":
+			{
+				"buffer_size": 674,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Program Files/DevPro/launcher.conf",
+		"/C/Program Files/DevPro/system.CONF",
+		"/C/Program Files/DevPro/ygopro_vs_ai_debug.exe",
+		"/C/Users/User/Dropbox/Development Area/www/offline-devpro.org/wordpress/wp-content/themes/Sachiel Theme/.gitignore",
+		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/DevPro-Interface/wp-content/themes/isolatedreality/template_lander.php",
+		"/C/Users/User/Dropbox/Development Area/www/offline-devpro.org/wordpress/wp-content/themes/devpro-theme-2/readme.md",
+		"/C/Users/User/Dropbox/Development Area/www/offline-devpro.org/wordpress/wp-content/themes/devpro-theme-2/header.php",
+		"/C/Users/User/Dropbox/Development Area/www/offline-devpro.org/wordpress/wp-content/themes/devpro-theme-2/function.php",
+		"/C/Users/User/Dropbox/Development Area/www/offline-devpro.org/wordpress/wp-content/themes/devpro-theme-2/css/extended.css",
+		"/C/Users/User/Dropbox/Development Area/www/offline-devpro.org/wordpress/wp-content/themes/devpro-theme-2/footer.php",
+		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/ygopro-ocgapi.js/ocgcore/ocgapi-header.js",
+		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/ygopro-ocgapi.js/graphical framework/index.html",
+		"/C/Users/User/AppData/Roaming/YGOPro/strings.conf",
+		"/C/Users/User/AppData/Roaming/YGOPro/script/suan.lua",
+		"/C/Users/User/AppData/Roaming/YGOPro/lflist.conf",
+		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/ygopro-ocgapi.js/ocgcore/duel-h.js",
+		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/ygopro-ocgapi.js/README.MD",
+		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/DevPro-Interface/lander/css/patch.css",
+		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/DevPro-Interface/wp-content/themes/isolatedreality/category-patch-note.php",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/wp-content/themes/isolatedreality/template_replayview.php",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/wp-content/themes/isolatedreality/template_lander.php",
+		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/Patch Note CMS/index.php",
+		"/C/Users/User/AppData/Roaming/YGOPro/launcher.conf",
+		"/C/Users/User/AppData/Roaming/YGOPro/objecttest.html",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/wp-content/themes/isolatedreality/template_replay.php",
+		"/C/Users/User/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/lander/replay/replay.php",
+		"/C/Users/User/Desktop/ygoprowebparser-master/parser.html",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/lander/replay.php",
+		"/C/Users/User/Desktop/ygoprowebparser-master/javascripts/main.js",
+		"/C/Users/User/Desktop/ygoprowebparser-master/stylesheets/style.css",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/lander/css/main.css",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/robots.txt",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/admin-application/index.php",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/blackhole/blackhole.dat",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/blackhole/index.php",
+		"/C/Users/Jamezs/.emscripten",
+		"/C/Users/User/Desktop/bad.html",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/.gitignore",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/lander/apple-touch-icon-114x114-precomposed.png",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/lander/humans.txt",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/setup-downloads/count.txt",
+		"/C/Users/User/Dropbox/DevPro/DLCount/download.php",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/template_lander.php",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/shortcodes/shortcodes.php",
+		"/C/Users/User/Dropbox/DevPro/ranking/ranking.css",
+		"/C/Users/User/Dropbox/DevPro/ranking/index.php",
+		"/C/Users/User/Dropbox/DevPro/wp-config.php",
+		"/C/Users/User/Dropbox/DevPro/DLCount/count.txt",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/footer.php",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/replaywatcher.php",
+		"/C/inetpub/wwwroot/replay/parser.html",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/lander/css/replay.css",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/lander/apple-touch-icon-72x72-precomposed.png",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/lander/js/vendor/parser/main.js",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/lander/js/vendor/parser/animate.js",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/css/main.css",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/index.php",
+		"/C/inetpub/wwwroot/replay/index.html",
+		"/C/inetpub/wwwroot/replay/replay.php",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/css/replay.css",
+		"/C/Users/User/AppData/Roaming/ygopro/Assets/FieldTransparent/field-transparent.png",
+		"/C/Users/User/Dropbox/DevPro/index.html",
+		"/C/Users/User/Dropbox/DevPro/interface1/js/main.js",
+		"/C/Users/User/Dropbox/DevPro/Interface2/websockify-master/other/USA Server.bat",
+		"/C/Users/User/Dropbox/DevPro/Interface2/websockify-master/other/websockify.js",
+		"/C/Users/User/Desktop/blackhole.dat",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/humans.txt",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/404.html",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/README.MD",
+		"/C/Users/User/Dropbox/DevPro/DevPro-Interface/LICENSE.MD",
+		"/C/Users/User/Desktop/buttyhandshake.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\Users\\User\\Dropbox"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"login",
+			"access",
+			"username",
+			"container",
+			"contain",
+			"op",
+			"parser",
+			".8",
+			"24",
+			"lightbox",
+			"light",
+			"text",
+			"DragImage",
+			"\\",
+			"13px",
+			"online",
+			"h1",
+			"swf",
+			".cdb",
+			"550px",
+			"570px",
+			"informat",
+			"margin-top",
+			"chrome",
+			"chrom",
+			"chrome",
+			"main",
+			"orange"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 1668,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1667,
+								1667
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/main.js",
+					"settings":
+					{
+						"buffer_size": 1447,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								641,
+								641
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Program Files/DevPro/launcher.conf",
+					"settings":
+					{
+						"buffer_size": 3445,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								531,
+								535
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Program Files/DevPro/system.CONF",
+					"settings":
+					{
+						"buffer_size": 674,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								461,
+								474
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.git":
+	{
+		"height": 25.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 200.0,
+	"status_bar_visible": true
+}
