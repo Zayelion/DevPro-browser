@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"bp",
+				"bpacketlength"
+			],
+			[
+				"conver",
+				"convertBuffer"
+			],
+			[
+				"cover",
+				"convertBuffer"
+			],
+			[
+				"buf",
+				"bufview"
+			],
+			[
+				"b",
+				"bufview"
+			],
+			[
+				"e",
+				"externalip"
+			],
+			[
+				"ex",
+				"externalhost"
+			],
+			[
+				"bufv",
+				"bufview"
+			],
+			[
+				"Ar",
+				"ArrayBuffer"
+			],
+			[
 				"in",
 				"in_0x"
 			],
@@ -28,10 +64,6 @@
 				"externalhost"
 			],
 			[
-				"ex",
-				"externalip"
-			],
-			[
 				"exter",
 				"externalport"
 			],
@@ -46,10 +78,6 @@
 			[
 				"det",
 				"details2"
-			],
-			[
-				"buf",
-				"bufView"
 			],
 			[
 				"bu",
@@ -112,10 +140,6 @@
 				"connect"
 			],
 			[
-				"e",
-				"externalport"
-			],
-			[
 				"font",
 				"font-size"
 			],
@@ -138,10 +162,6 @@
 			[
 				"ta",
 				"target_path"
-			],
-			[
-				"b",
-				"background"
 			],
 			[
 				"bor",
@@ -187,7 +207,15 @@
 			"file": "js/main.js",
 			"settings":
 			{
-				"buffer_size": 3557,
+				"buffer_size": 4181,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 2654,
 				"line_ending": "Windows"
 			}
 		}
@@ -392,15 +420,15 @@
 					"file": "js/main.js",
 					"settings":
 					{
-						"buffer_size": 3557,
+						"buffer_size": 4181,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2199,
-								2199
+								3710,
+								3710
 							]
 						],
 						"settings":
@@ -408,8 +436,34 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 91.0,
-						"translation.y": 945.0,
+						"translation.x": 0.0,
+						"translation.y": 1034.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": ".gitignore",
+					"settings":
+					{
+						"buffer_size": 2654,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								176,
+								176
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
