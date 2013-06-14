@@ -4,16 +4,84 @@
 		"selected_items":
 		[
 			[
+				"con",
+				"console"
+			],
+			[
+				"in",
+				"in_flat"
+			],
+			[
+				"d",
+				"details1"
+			],
+			[
+				"det",
+				"details2"
+			],
+			[
+				"buf",
+				"bufView"
+			],
+			[
+				"bu",
+				"bufView"
+			],
+			[
+				"js",
+				"json"
+			],
+			[
+				"cont",
+				"convertArray"
+			],
+			[
+				"ou",
+				"output"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"a",
+				"Array"
+			],
+			[
+				"p",
+				"packetlength"
+			],
+			[
+				"j",
+				"json"
+			],
+			[
 				"lo",
 				"login"
 			],
 			[
-				"jso",
-				"jsocket"
+				"ex",
+				"externalport"
 			],
 			[
-				"js",
-				"jsonholder"
+				"ext",
+				"externalip"
+			],
+			[
+				"exter",
+				"externalport"
+			],
+			[
+				"interna",
+				"internalport"
+			],
+			[
+				"jso",
+				"jsocket"
 			],
 			[
 				"en",
@@ -36,24 +104,12 @@
 				"externalport"
 			],
 			[
-				"in",
-				"internalip"
-			],
-			[
-				"ex",
-				"externalip"
-			],
-			[
 				"font",
 				"font-size"
 			],
 			[
 				"border",
 				"border-radius"
-			],
-			[
-				"d",
-				"display"
 			],
 			[
 				"margin-",
@@ -111,7 +167,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 1668,
+				"buffer_size": 1673,
 				"line_ending": "Windows"
 			}
 		},
@@ -119,7 +175,7 @@
 			"file": "js/main.js",
 			"settings":
 			{
-				"buffer_size": 1447,
+				"buffer_size": 2459,
 				"line_ending": "Windows"
 			}
 		},
@@ -127,7 +183,7 @@
 			"file": "/C/Program Files/DevPro/launcher.conf",
 			"settings":
 			{
-				"buffer_size": 3445,
+				"buffer_size": 3390,
 				"line_ending": "Windows"
 			}
 		},
@@ -135,7 +191,7 @@
 			"file": "/C/Program Files/DevPro/system.CONF",
 			"settings":
 			{
-				"buffer_size": 674,
+				"buffer_size": 678,
 				"line_ending": "Windows"
 			}
 		}
@@ -312,15 +368,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 1668,
+						"buffer_size": 1673,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1667,
-								1667
+								1282,
+								1282
 							]
 						],
 						"settings":
@@ -340,23 +396,24 @@
 					"file": "js/main.js",
 					"settings":
 					{
-						"buffer_size": 1447,
+						"buffer_size": 2459,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								641,
-								641
+								1134,
+								1134
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 278.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -366,15 +423,15 @@
 					"file": "/C/Program Files/DevPro/launcher.conf",
 					"settings":
 					{
-						"buffer_size": 3445,
+						"buffer_size": 3390,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								531,
-								535
+								0,
+								0
 							]
 						],
 						"settings":
@@ -394,15 +451,15 @@
 					"file": "/C/Program Files/DevPro/system.CONF",
 					"settings":
 					{
-						"buffer_size": 674,
+						"buffer_size": 678,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								461,
-								474
+								0,
+								0
 							]
 						],
 						"settings":
