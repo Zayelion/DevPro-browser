@@ -104,18 +104,28 @@ function Authenticator(username, encodedPassword, UID){	// creates an object use
 	
 	//packetlength			    = encodeURI(this.json).split(/%..|./).length - 1+'';  //figure out the packet length
 	details = {};				//storage object
-	details['in_0x']			= ['0x4'].concat(convertBytes(packetlength));//.concat(convertBytes(this.json));
+	details['in_0x']			= ['0x4'].concat(convertBytes(packetlength)).concat(convertBytes(this.json));
 	details['in_0xNum']			= [4].concat(convertBytes2(packetlength)).concat(convertBytes2(this.json));
 	details['in_flat'] 			= '\u0004'+packetlength+this.json;
 	
-	buf = new ArrayBuffer(3+ packetlength);
-	this.bufview = new Uint8Array(buf);
-	this.bufview[0] = 0x4;
-	this.bufview[1] = '0x'+packetlength.toString(16)[0]+'0';
-	this.bufview[2] = '0x'+packetlength.toString(16)[1];
-	this.bufview = this.bufview + convertBuffer(('0x'+packetlength)+this.json);
-	details['buffer']			=buf;
+	bufferheader = new ArrayBuffer(3);
+	bufferheader_view = new Uint8Array(bufferheader);
+	bufferheader_view[0] = 0x4;
+	bufferheader_view[1] = '0x'+packetlength.toString(16)[0]+'0';
+	bufferheader_view[2] = '0x'+packetlength.toString(16)[1];
+
+	bufferjson = new ArrayBuffer(2+packetlength);
+	bufferjson_view = new Int16Array;
+	bufferjson_view = packetlength+this.json;
+
+	buffer = new ArrayBuffer(bufferheader.length + bufferjson_view.length);
+	this.buffer_view = new Uint8Array(buffer);
+	this.buffer_view = bufferheader_view + bufferheader_view;
+
+
+
 	
+	details['buffer']			=buffer;
 
 	this.details = details;		//make the storage object viewable outside the class/object. Couldn't do this directly.
 }
