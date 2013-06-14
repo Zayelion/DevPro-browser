@@ -4,12 +4,40 @@
 		"selected_items":
 		[
 			[
-				"con",
-				"console"
+				"in",
+				"in_0x"
 			],
 			[
-				"in",
-				"in_flat"
+				"log",
+				"login"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"on",
+				"onmessage"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"ext",
+				"externalhost"
+			],
+			[
+				"ex",
+				"externalip"
+			],
+			[
+				"exter",
+				"externalport"
+			],
+			[
+				"con",
+				"console"
 			],
 			[
 				"d",
@@ -58,22 +86,6 @@
 			[
 				"j",
 				"json"
-			],
-			[
-				"lo",
-				"login"
-			],
-			[
-				"ex",
-				"externalport"
-			],
-			[
-				"ext",
-				"externalip"
-			],
-			[
-				"exter",
-				"externalport"
 			],
 			[
 				"interna",
@@ -175,23 +187,7 @@
 			"file": "js/main.js",
 			"settings":
 			{
-				"buffer_size": 2459,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Program Files/DevPro/launcher.conf",
-			"settings":
-			{
-				"buffer_size": 3390,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Program Files/DevPro/system.CONF",
-			"settings":
-			{
-				"buffer_size": 678,
+				"buffer_size": 3557,
 				"line_ending": "Windows"
 			}
 		}
@@ -224,8 +220,8 @@
 	},
 	"file_history":
 	[
-		"/C/Program Files/DevPro/launcher.conf",
 		"/C/Program Files/DevPro/system.CONF",
+		"/C/Program Files/DevPro/launcher.conf",
 		"/C/Program Files/DevPro/ygopro_vs_ai_debug.exe",
 		"/C/Users/User/Dropbox/Development Area/www/offline-devpro.org/wordpress/wp-content/themes/Sachiel Theme/.gitignore",
 		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/DevPro-Interface/wp-content/themes/isolatedreality/template_lander.php",
@@ -396,15 +392,15 @@
 					"file": "js/main.js",
 					"settings":
 					{
-						"buffer_size": 2459,
+						"buffer_size": 3557,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1134,
-								1134
+								2199,
+								2199
 							]
 						],
 						"settings":
@@ -412,62 +408,8 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 278.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Program Files/DevPro/launcher.conf",
-					"settings":
-					{
-						"buffer_size": 3390,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Program Files/DevPro/system.CONF",
-					"settings":
-					{
-						"buffer_size": 678,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": 91.0,
+						"translation.y": 945.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

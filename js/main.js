@@ -1,18 +1,18 @@
-//Buttys 86.0.24.143 9999
-// EU server IP 91.250.84.118
+//Buttys node ws-tcp-bridge --method=ws2tcp --lport=9999 --rhost=86.0.24.143:9999
+//EU node ws-tcp-bridge --method=ws2tcp --lport=9999 --rhost=91.250.84.1181:9999
 // encodedPassword 1MY5XPo/v7dqOhWNi+faoQ==
-//node ws-tcp-bridge --method=ws2tcp --lport=9999 --rhost=91.250.84.1181:9999
+//
 
 var encodedPassword	= '1MY5XPo/v7dqOhWNi+faoQ==';
 var username 		= 'testBrowser';
 var UID				='123456789123456789';
 
-function __WSTCPBridge(externalip, externalhost, local){
+function __WSTCPBridge(externalhost){
 		
 		
-		this.externalip			= externalip;
-		this.externalport		= externalip;
-		this.socket 			= new WebSocket('ws://localhost:9999');
+		
+		
+		this.socket 			= new WebSocket(externalhost);
 
 		this.socket.onmessage	= function (e) {onmessage(e)};
 		this.socket.onopen		= function (e) {onconnection(e)};
@@ -48,7 +48,7 @@ function __WSTCPBridge(externalip, externalhost, local){
 // 			}
 // 		}
 function onconnection(){
-			console.log('[connection established');
+			console.log('[connection established]');
 			loginFn();
 		}
 function onmessage(message){
@@ -74,6 +74,14 @@ function convertBytes2(string){
 	}
 	return bytes;
 }
+function convertBuffer(str) {
+	var buf = new ArrayBuffer(str.length*2); // 2 bytes for each char
+	var bufView = new Uint16Array(buf);
+	for (var i=0, strLen=str.length; i<strLen; i++) {
+		bufView[i] = str.charCodeAt(i);
+	}
+	return buf;
+}
 
 function Authenticator(username, encodedPassword, UID){	// creates an object used for login and storage of data about the attempted login
 	if (username == ""){
@@ -90,11 +98,23 @@ function Authenticator(username, encodedPassword, UID){	// creates an object use
 
 
 
-	packetlength			    = encodeURI(this.json).split(/%..|./).length - 1+'';  //figure out the packet length
+	packetlength				= this.json.length*2;
+	this.p =packetlength;	
+
+	
+	//packetlength			    = encodeURI(this.json).split(/%..|./).length - 1+'';  //figure out the packet length
 	details = {};				//storage object
-	details['in_0x']			= ['0x4'].concat(convertBytes(packetlength)).concat(convertBytes(this.json));
+	details['in_0x']			= ['0x4'].concat(convertBytes(packetlength));//.concat(convertBytes(this.json));
 	details['in_0xNum']			= [4].concat(convertBytes2(packetlength)).concat(convertBytes2(this.json));
 	details['in_flat'] 			= '\u0004'+packetlength+this.json;
+	
+	buf = new ArrayBuffer(3+ packetlength);
+	this.bufview = new Uint8Array(buf);
+	this.bufview[0] = 0x4;
+	this.bufview[1] = '0x'+packetlength.toString(16)[0]+'0';
+	this.bufview[2] = '0x'+packetlength.toString(16)[1];
+	this.bufview = this.bufview + convertBuffer(('0x'+packetlength)+this.json);
+	details['buffer']			=buf;
 	
 
 	this.details = details;		//make the storage object viewable outside the class/object. Couldn't do this directly.
@@ -102,13 +122,11 @@ function Authenticator(username, encodedPassword, UID){	// creates an object use
 
 function loginFn(option){
 	login = new Authenticator(username, encodedPassword, UID);
-	server.socket.send(login.details['in_0x'+'\n']);
-	server.socket.send(login.details['in_0xNum'+'\n']);
-	server.socket.send(login.details['in_flat'+'\n']);
+	server.socket.send(login.details['buffer']);
 	console.log(login.details); //print an overview of the login object.
 }
 
-		var server = new __WSTCPBridge('ws://localhost', 9999, false);
+		var server = new __WSTCPBridge('ws://localhost:9999');
 		var login;
 		var previousMessage;
 
@@ -116,7 +134,7 @@ function loginFn(option){
 
 
 
-//server.socket.send(login.details.in_flat);
-
+//ws://echo.websocket.org
+//ws://localhost:9999
 
 
