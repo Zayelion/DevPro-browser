@@ -35,8 +35,8 @@ function duel(){
 	duel           : null; //function defined later that processes this class
 	_duel          : null; //function defined later that loops all te groups.
 
-	//duel();
-	//~duel();
+	
+	
 }
 
 	//Player
@@ -194,25 +194,33 @@ function card(card, effect, duel) {
 	set_status        = function(status, enabled){};
 	get_status        = function(status){};
 	is_status         = function(status){};
-    
-    equip                  = function(card.target, send_msg){send_msg = typeof send_msg !== 'undefined' ? send_msg : true;};
-    unequip                = function(){};
-    get_union_count        = function(){};
-    xyz_overlay            = function(card_set.materials){};
-    xyz_add                = function(card.mat, card_set.des){};
-    xyz_remove             = function(card.mat){};
-    appy_field_effect      = function(){};
-    cancel_field_effect    = function(){};
-    enable_field_effect    = function(enabled){};
-    add_effect             = function(effect.peffect){};
-    //remove_effect        = function(effect.peffect){};
-    remove_effect          = function(effect.peffect, effect_container.iterator(it)){};
-    copy_effect            = function(code, reset, count){};
-    reset                  = function(id, reset_type){};
-    reset_effect_count     = function(){};
-    refresh_disable_status = function(){};
-    refresh_control_status = function(){};
+ 
+	equip                  = function(card.target, send_msg){send_msg = typeof send_msg !== 'undefined' ? send_msg : true;};
+	unequip                = function(){};
+	get_union_count        = function(){};
+	xyz_overlay            = function(card_set.materials){};
+	xyz_add                = function(card.mat, card_set.des){};
+	xyz_remove             = function(card.mat){};
+	appy_field_effect      = function(){};
+	cancel_field_effect    = function(){};
+	enable_field_effect    = function(enabled){};
+	add_effect             = function(effect.peffect){};
+	//remove_effect        = function(effect.peffect){};
+	remove_effect          = function(effect.peffect, effect_container.iterator(it)){};
+	copy_effect            = function(code, reset, count){};
+	reset                  = function(id, reset_type){};
+	reset_effect_count     = function(){};
+	refresh_disable_status = function(){};
+	refresh_control_status = function(){};
 
+	count_turn           = function(ct){};
+	//create_relation    = function(card.target, reset){};
+	create_relation      = function(effect.peffect){};
+	//is_has_relation      = function(card.target){};
+	is_has_relation      = function(effect.peffect){};
+	release_relation     = function(card.target){};
+	release_relation     = function(effect.peffect){};
+	leave_field_redirect = function(reason){};
 
 }
 
