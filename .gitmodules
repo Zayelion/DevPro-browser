@@ -1,3 +1,9 @@
 [submodule "webtcp"]
 	path = webtcp
 	url = https://github.com/yankov/webtcp
+[submodule "js/vender/luavmjs"]
+	path = js/vender/luavmjs
+	url = https://github.com/kripken/lua.vm.js.git
+[submodule "js/vendor/luavmjs"]
+	path = js/vendor/luavmjs
+	url = https://github.com/kripken/lua.vm.js.git
