@@ -339,7 +339,7 @@ function query_cache() {
 function card(card, effect, duel) {
 	card_vector         : new Array(card);
 	effect_container ; /// revisit
-	card_set             : effect.map(card_sort);
+	card_set             : new Array(effect.map(card_sort));
 	card_indexer         : effect.map(effect_container);
 	effect_relation      : effect.map( new Number);
 	relation_map         : card.map( new Number);
@@ -509,9 +509,24 @@ function card(card, effect, duel) {
 
 //group.h
 
+function group(){
+	scrtype     : new Number();
+	ref_handler : new Number();
+	container   : new card_set();
+	//card_set::iterator it; revisit
+	is_readonly : new Number();
+
+	group       : function(){};
+	_group      : function();
+
+
+}
+
 //end of group
 
+//Effect.h
 
 
 
 //});// end encompasing anonymous function
+
