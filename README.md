@@ -1,6 +1,6 @@
 #[YGOPro DevPro Online Browser interface](http://devpro.org)
 
-This resportory contains the online interface for the YGOPro DevPro ONline Browser interface. THe interface is designed to increase general compatiablity of the game using a nodejs based tunneling program to allow TCP based  server communications via websockets and client side javascript that emulates the DevPro Launcher, OCGCore and YGOPro networking BLOB buffers.
+This resportory contains the online interface for the YGOPro DevPro ONline Browser interface. THe interface is designed to increase general compatiablity of the game using a nodejs based tunneling program to allow TCP based  server communications via websockets and client side javascript that emulates the DevPro Launcher, [OCGCore and YGOPro](https://github.com/Fluorohydride/ygopro) networking BLOB buffers.
 
 Source :
 Homepage :

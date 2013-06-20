@@ -205,7 +205,7 @@ function card(card, effect, duel) {
 	cancel_field_effect    = function(){};
 	enable_field_effect    = function(enabled){};
 	add_effect             = function(effect.peffect){};
-	//remove_effect        = function(effect.peffect){};
+	remove_effect          = function(effect.peffect){};
 	remove_effect          = function(effect.peffect, effect_container.iterator(it)){};
 	copy_effect            = function(code, reset, count){};
 	reset                  = function(id, reset_type){};
@@ -214,9 +214,9 @@ function card(card, effect, duel) {
 	refresh_control_status = function(){};
 
 	count_turn           = function(ct){};
-	//create_relation    = function(card.target, reset){};
+	create_relation      = function(card.target, reset){};
 	create_relation      = function(effect.peffect){};
-	//is_has_relation      = function(card.target){};
+	is_has_relation      = function(card.target){};
 	is_has_relation      = function(effect.peffect){};
 	release_relation     = function(card.target){};
 	release_relation     = function(effect.peffect){};
@@ -230,14 +230,61 @@ function card(card, effect, duel) {
 	add_card_target      = function(card.pcard){};
 	cancel_card_target   = function(card.pcard){};
 
-	filter_effect                   = function(code, effect_set.est, sort){ {sort = typeof sort !== 'undefined' ? sort : true;};};
-	filter_single_continuous_effect = function(code, effect_set.est, sort){ {sort = typeof sort !== 'undefined' ? sort : true;};};
+	filter_effect                   = function(code, effect_set.est, sort){ sort = typeof sort !== 'undefined' ? sort : true;};
+	filter_single_continuous_effect = function(code, effect_set.est, sort){ sort = typeof sort !== 'undefined' ? sort : true;};
+	filter_immune_effect            = function(){};
+	filter_disable_related_cards    = function(){};
+	filter_csummon_procedure        = function(playerid, effect_set.eset, ignore_count){};
+	filter_set_procedure            = function(playerid, effect_set.eset, ignore_count){};
+	filter_spsummon_procedure       = function(playerid, effect_set.eset){};
+	effect.is_affected_by_effect           = function(code){};
+	effect.is_affected_by_effect           = function(code, card){card = card['target']};
+	effect.check_equip_control_effect      = function(){};
+	fusion_check                    = function(group.fusion_m, card.cg, chkf){};
+	fusion_select                   = function(playerid, group.fusion_m, card.cg, chkf){};
 
-
-
-
-
+	is_equipable                = function(card.pcard){};
+	//is_summonable               = function(){};
+	is_summonable               = function(effect.peffect){};
+	is_can_be_summoned          = function(effect.peffect){};
+	get_tribute_summon_count    = function(){};
+	get_can_be_flip_summoned    = function(){};
+	is_can_be_flip_summoned     = function(playerid){};
+	is_special_summoned         = function(playerid){};
+	is_can_be_special_summoned  = function(resaon_effect, sumtype, sumpos, sumplayer, toplayer, nocheck, nolimit){};
+	is_setable_mzone            = function(playerid, ignore_count, effect.peffect){};
+	is_setable_mzone            = function(playerid, ignore_fd){ignore_fd = typeof ignore_fd !== 'undefined' ? ignore_fd : +0;};
+	is_affect_by_effect         = function(effect.peffect){};
+	is_destructable             = function(){};
+	is_destructable_by_battle   = function(card.pcard){};
+	is_destructable_by_effect   = function(effect.peffect, playerid){};
+	is_removeable               = function(playerid){};
+	is_removable_as_cost        = function(playerid){};
+	is_releasable_by_summon     = function(playerid, card.pcard){};
+	is_releasable_by_nonsummon  = function(playerid){};
+	is_releasable_by_effect     = function(playerid, effect.peffect){};
+	is_capable_sent_grave       = function(playerid){};
+	is_capable_sent_hand        = function(playerid){};
+	is_capable_sent_deck        = function(playerid){};
+	is_capable_sent_extra       = function(playerid){};
+	is_capable_cost_grave       = function(playerid){};
+	is_capable_cost_hand        = function(playerid){};
+	is_capable_cost_deck        = function(playerid){};
+	is_capable_cost_extra       = function(playerid){};
+	is_capable_attack           = function(){};
+	is_capable_attack_announce  = function(playerid){};
+	is_capable_change_position  = function(playerid){};
+	is_capable_turn_set         = function(playerid){};
+	is_capable_change_set       = function(){};
+	is_capable_change_control   = function(){};
+	is_control_can_be_changed   = function(){};
+	is_capable_be_battle_target = function(card.pcard){};
+	is_capable_be_effect_target = function(effect.peffect, playerid){};
+	is_can_be_fusion_material   = function(){};
+	is_can_be_synchro_material  = function(card.scard, card.tuner){tuner = typeof tuner !== 'undefined' ? tuner : +0;};
+	is_can_be_xyz_material      = function(card.scard){};
 }
+//end of card.h
 
 //Locations
 var LOCATION_DECK		    = 0x01;
@@ -405,7 +452,7 @@ var QUERY_OWNER			 = 0x40000;
 var QUERY_IS_DISABLED	 = 0x80000;
 var QUERY_IS_PUBLIC		 = 0x100000;
 
-//end of card.h
+
 
 
 //});// end encompasing anonymous function
