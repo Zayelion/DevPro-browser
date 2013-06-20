@@ -172,14 +172,46 @@ function card(card, effect, duel) {
     card();
     //~card();
 
-    card_operation_sort : function(){};
+    var card_operation_sort = function( card.c1, card.c2){};
 
-    get_infos         : function (buf, query_flag, use_cache : true){}
-	get_info_location : function(){};
-	get_code          : function();
-	is_set_card       : function(set_code);
-	get_type          : function();
-	get_base_attack   : function(swap );
+    get_infos         = function(buf, query_flag, use_cache){use_cache = typeof use_cache !== 'undefined' ? use_cache : true;}
+	get_info_location = function(){};
+	get_code          = function(){};
+	is_set_card       = function(set_code){};
+	get_type          = function(){};
+	get_base_attack   = function(swap){swap = typeof swap !== 'undefined' ? swap : false;};
+	get_attack        = function(swap){swap = typeof swap !== 'undefined' ? swap : false;};
+	get_base_defense  = function(swap){swap = typeof swap !== 'undefined' ? swap : false;};
+	get_defense       = function(swap){swap = typeof swap !== 'undefined' ? swap : false;};
+	get_level         = function(){};
+	get_rank          = function(){};
+	get_synchro_level = function(card.pcard){};
+	get_ritual_level  = function(card.pcard){};
+	is_xyz_level      = function(card.pcard, lv ){};
+	get_attribute     = function(){};
+	get_race          = function(){};
+	is_position       = function(pos){};
+	set_status        = function(status, enabled){};
+	get_status        = function(status){};
+	is_status         = function(status){};
+    
+    equip                  = function(card.target, send_msg){send_msg = typeof send_msg !== 'undefined' ? send_msg : true;};
+    unequip                = function(){};
+    get_union_count        = function(){};
+    xyz_overlay            = function(card_set.materials){};
+    xyz_add                = function(card.mat, card_set.des){};
+    xyz_remove             = function(card.mat){};
+    appy_field_effect      = function(){};
+    cancel_field_effect    = function(){};
+    enable_field_effect    = function(enabled){};
+    add_effect             = function(effect.peffect){};
+    //remove_effect        = function(effect.peffect){};
+    remove_effect          = function(effect.peffect, effect_container.iterator(it)){};
+    copy_effect            = function(code, reset, count){};
+    reset                  = function(id, reset_type){};
+    reset_effect_count     = function(){};
+    refresh_disable_status = function(){};
+    refresh_control_status = function(){};
 
 
 }
