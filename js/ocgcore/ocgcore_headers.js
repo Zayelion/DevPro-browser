@@ -221,6 +221,21 @@ function card(card, effect, duel) {
 	release_relation     = function(card.target){};
 	release_relation     = function(effect.peffect){};
 	leave_field_redirect = function(reason){};
+	destination_redirect = function(reason){};
+	add_counter          = function(destination, reason){};
+	remove_counter       = function(countertype, count){};
+	is_can_add_counter   = function(countertype, count){};
+	get_counter          = function(countertype){};
+	set_material         = function(card.materials){};
+	add_card_target      = function(card.pcard){};
+	cancel_card_target   = function(card.pcard){};
+
+	filter_effect                   = function(code, effect_set.est, sort){ {sort = typeof sort !== 'undefined' ? sort : true;};};
+	filter_single_continuous_effect = function(code, effect_set.est, sort){ {sort = typeof sort !== 'undefined' ? sort : true;};};
+
+
+
+
 
 }
 
