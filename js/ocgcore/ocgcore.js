@@ -14,27 +14,27 @@ function interpreter(){}	//class
 	$.getScript('js/vendor/mersenne-twister.js');
 	//write loaderscript later
 
-function duel_arg{
-	var this.start_lp;
-	var this.start_hand;
-	var this.draw_count;
+duel_arg = function(){
+	this.start_lp		=new Number();
+	this.start_hand		=new Number();
+	this.draw_count		=new Number();
 }
 
-duel = function {
+duel = function() {
 
 	//This first part here is an array buffer and will have to be rewritten if farther code allows;
-	var this.strbuffer; 	//256
-	var this.buffer;		//0x1000
-	var this.bufferlin;
-	var this.bufferp;
-	var this.lua;
-	var this.game_field;
-	var this.random 	= new MersenneTwister();
-	var this.cards 		= new card();
-	var this.groups 	= new group;
-	var this.sgroups	= new group;
-	var this.effects	= new effect;
-	var this.uncopy		= new effect;
+	this.strbuffer		= new String(); 	//256
+	this.buffer			= null;		//0x1000
+	this.bufferlin		= null;
+	this.bufferp		= null;
+	this.lua			= null;
+	this.game_field		= null;
+	this.random 		= new MersenneTwister();
+	this.cards 			= new card();
+	this.groups 		= new group();
+	this.sgroups		= new group();
+	this.effects		= new effect();
+	this.uncopy			= new effect();
 }
 
 	//Player
@@ -62,21 +62,39 @@ duel = function {
 
 //card.h 
 
-function card_data() {
-	var this.code_;  //this.code;
-	var this.alias;
-	var this.setcode;
-	var this.type_;	//this.type;
-	var this.level;
-	var this.attribute;
-	var this.race;
-	var this.attack;
-	var this.defense;
+function card_data() {  //struct
+	this.code_;  //this.code;
+	this.alias;
+	this.setcode;
+	this.type_;	//this.type;
+	this.level;
+	this.attribute;
+	this.race;
+	this.attack;
+	this.defense;
+
 }
 
 function card_state() {
-	var this.code_; //this.code;
-	var this.type_; //this.type;
+	this.code_; //this.code;
+	this.type_; //this.type;
+	this.level;
+	this.attribute;
+	this.race;
+	this.attack;
+	this.defense;
+	this.attack;
+	this.base_attack;
+	this.base_defense;
+	this.controler;
+	this.locationl
+	this.sequence;
+	this.position;
+	this.reason;
+	this.reason_card = new card();
+	this.reason_player; 
+	this.reason_effect = new effect();
+
 }
 
 
