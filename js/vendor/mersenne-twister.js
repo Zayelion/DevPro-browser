@@ -194,9 +194,3 @@ MersenneTwister.prototype.genrand_res53 = function() {
 } 
  
 /* These real versions are due to Isaku Wada, 2002/01/09 added */
-
-Write Preview Comments are parsed with GitHub Flavored Markdown
-
-Add Comment
-© 2013 GitHub Inc. All rights reserved.
-The GitHub Blog Support Contact

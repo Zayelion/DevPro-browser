@@ -1,5 +1,5 @@
 //ocgapi.h
-(function(){ //start encompasing anonymous function
+//(function(){ //start encompasing anonymous function
 "use strict";
 //function card(){}; //struct
 function card_info(){}; //stuct
@@ -10,117 +10,180 @@ function interpreter(){} //class
 //end of ocgapi.h
 
 //duel.h
-	// load randomizer function #include mtrandom.h
-	$.getScript('js/vendor/mersenne-twister.js');
-	//write loaderscript later
 
-duel_arg = function(){
-	this.start_lp		=new Number();
-	this.start_hand		=new Number();
-	this.draw_count		=new Number();
+function duel_arg(){
+	start_lp		:new Number();
+	start_hand		:new Number();
+	draw_count		:new Number();
 }
 
-duel = function() {
+function duel(){
 
 	//This first part here is an array buffer and will have to be rewritten if farther code allows;
-	this.strbuffer		= new String(); 	//256
-	this.buffer			= null;		//0x1000
-	this.bufferlin		= null;
-	this.bufferp		= null;
-	this.lua			= null;
-	this.game_field		= null;
-	this.random 		= new MersenneTwister();
-	this.cards 			= new Array // of card(); 's
-	this.groups 		= new Array // of group(); 's
-	this.sgroups		= new Array // of group(); 's
-	this.effects		= new Array // of effect(); 's
-	this.uncopy			= new Array // of effect(); 's
-	this.duel           = null; //function defined later that processes this class
-	this._duel          = null; //function defined later that loops all te groups.
+	strbuffer      : new String(); 	//256
+	buffer         : 0x1000;
+	bufferlin      : null;
+	bufferp        : null;
+	lua            : null;
+	game_field     : null;
+	random         : new MersenneTwister();
+	cards          : new Array // of card(); 's
+	groups         : new Array // of group(); 's
+	sgroups        : new Array // of group(); 's
+	effects        : new Array // of effect(); 's
+	uncopy         : new Array // of effect(); 's
+	duel           : null; //function defined later that processes this class
+	_duel          : null; //function defined later that loops all te groups.
+
+	//duel();
+	//~duel();
 }
 
 	//Player
-	PLAYER_NONE = 2;
-	PLAYER_ALL  = 3;
+	var PLAYER_NONE = 2;
+	var PLAYER_ALL  = 3;
 	//Phase
-	PHASE_DRAW       = 0x01;
-	PHASE_STANDBY    = 0x02;
-	PHASE_MAIN1      = 0x04;
-	PHASE_BATTLE     = 0x08;
-	PHASE_DAMAGE     = 0x10;
-	PHASE_DAMAGE_CAL = 0x20;
-	PHASE_MAIN2      = 0x40;
-	PHASE_END        = 0x80;
+	var PHASE_DRAW       = 0x01;
+	var PHASE_STANDBY    = 0x02;
+	var PHASE_MAIN1      = 0x04;
+	var PHASE_BATTLE     = 0x08;
+	var PHASE_DAMAGE     = 0x10;
+	var PHASE_DAMAGE_CAL = 0x20;
+	var PHASE_MAIN2      = 0x40;
+	var PHASE_END        = 0x80;
 	//Options
-	DUEL_TEST_MODE         = 0x01;
-	DUEL_ATTACK_FIRST_TURN = 0x02;
-	DUEL_NO_CHAIN_HINT     = 0x04;
-	DUEL_ENABLE_PRIORITY   = 0x08;
-	DUEL_PSEUDO_SHUFFLE    = 0x10;
-	DUEL_TAG_MODE          = 0x20;
-	DUEL_SIMPLE_AI         = 0x40;
+	var DUEL_TEST_MODE         = 0x01;
+	var DUEL_ATTACK_FIRST_TURN = 0x02;
+	var DUEL_NO_CHAIN_HINT     = 0x04;
+	var DUEL_ENABLE_PRIORITY   = 0x08;
+	var DUEL_PSEUDO_SHUFFLE    = 0x10;
+	var DUEL_TAG_MODE          = 0x20;
+	var DUEL_SIMPLE_AI         = 0x40;
 
 //end of duel.h
 
 //card.h 
 
 function card_data() {  //struct
-	this.code_     = new Number(); //this.code;
-	this.alias     = new Number();
-	this.setcode   = new Number();
-	this.type_     = new Number(); //this.type;
-	this.level     = new Number();
-	this.attribute = new Number();
-	this.race      = new Number();
-	this.attack    = new Number();
-	this.defense   = new Number();
+	code_     : new Number(); //code;
+	alias     : new Number();
+	setcode   : new Number();
+	type_     : new Number(); //type;
+	level     : new Number();
+	attribute : new Number();
+	race      : new Number();
+	attack    : new Number();
+	defense   : new Number();
 
 }
 
-function card_state() {
-	this.code_         = new Number(); //this.code;
-	this.type_         = new Number(); //this.type;
-	this.level         = new Number();
-	this.attribute     = new Number();
-	this.race          = new Number();
-	this.attack        = new Number();
-	this.defense       = new Number();
-	this.attack        = new Number();
-	this.base_attack   = new Number();
-	this.base_defense  = new Number();
-	this.controler     = new Number();
-	this.location_     = new Number();
-	this.sequence      = new Number();
-	this.position      = new Number();
-	this.reason        = new Number();
-	this.reason_card   = null;
-	this.reason_player = new Number(); 
-	this.reason_effect = null;
+function card_state(card, effect) {
+	code_         : new Number(); //code;
+	type_         : new Number(); //type;
+	level         : new Number();
+	attribute     : new Number();
+	race          : new Number();
+	attack        : new Number();
+	defense       : new Number();
+	attack        : new Number();
+	base_attack   : new Number();
+	base_defense  : new Number();
+	controler     : new Number();
+	location_     : new Number();
+	sequence      : new Number();
+	position      : new Number();
+	reason        : new Number();
+	reason_card   : card;
+	reason_player : new Number(); 
+	reason_effect : effect;
 }
 
 function query_cache() {
-	this.code_          = new Number(); //this.code;
-	this.alias          = new Number();
-	this.setcode        = new Number();
-	this.type_          = new Number(); //this.type;
-	this.level          = new Number();
-	this.attribute      = new Number();
-	this.race           = new Number();
-	this.attack         = new Number();
-	this.defense        = new Number();
-	this.base_attack    = new Number();
-	this.base_defense   = new Number();
-	this.reason         = new Number();
-	this.is_public      = new Number();
-	this.is_disabled    = new Number();
+	code           : new Number(); //code;
+	alias          : new Number();
+	setcode        : new Number();
+	type           : new Number(); //type;
+	level          : new Number();
+	attribute      : new Number();
+	race           : new Number();
+	attack         : new Number();
+	defense        : new Number();
+	base_attack    : new Number();
+	base_defense   : new Number();
+	reason         : new Number();
+	is_public      : new Number();
+	is_disabled    : new Number();
 }
 
-function card() {
-	this.card_cectior     = new Array();
-	this.effect_container ;
-	this.card_set         = Array.map(this, card_sort)
-	this.
+function card(card, effect, duel) {
+	card_vector         : new Array(card);
+	effect_container ; /// revisit
+	card_set             : effect.map(card_sort);
+	card_indexer         : effect.map(effect_container);
+	effect_relation      : effect.map( new Number);
+	relation_map         : card.map( new Number);
+	counter_map          : new Array.map( new Number);
+	attacker_map         : new Array.map( card);
+
+	scrtype              : new Number();
+	pduel                : duel;
+	data_                : new card_data(card, effect);
+	previous_            : new card_data(card, effect);
+	temp                 : new card_data(card, effect);
+	current_             : new card_data(card, effect);
+	q_cache              : new query_cache();
+	owner                : new Number();
+	summon_player        : new Number();
+	summon_type          : new Number();
+	status_              : new Number();
+	operation_param      : new Number();
+	announce_count       : new Number();
+	attacked_count       : new Number();
+	attack_negated_count : new Number();
+	attack_all_target    : new Number();
+	cardid               : new Number();
+	fieldid              : new Number();
+	fieldid_r            : new Number();
+	turnid               : new Number();
+	turn_counter         : new Number();
+	unique_pos           : new Number(2);
+	unique_code          : new Number();
+	unique_effect        : effect;
+	equiping_target      : card;
+	pre_equip_target     : card;
+	overlay_taget        : card;
+	relations            : new relation_map();
+	counters             : new counter_map();
+	announced_cards      : new attacker_map();
+	attacked_cards       : new attacker_map();
+	battled_cards        : new attacker_map();
+	equiping_cards       : new card_set();
+	material_cards       : new card_set();
+	effect_target_owner  : new card_set();
+	effect_target_cards  : new card_set();
+	xyz_materials        : new card_vector();
+	single_effect        : new effect_container;
+	field_effect         : new effect_container;
+	equip_effect         : new effect_container;
+	indexer              : new effect_indexer;
+	relate_effect        : new effect_relation;
+	immune_effect        : new effect_set_v;
+    
+    card();
+    //~card();
+
+    card_operation_sort : function(){};
+
+    get_infos         : function (buf, query_flag, use_cache : true){}
+	get_info_location : function(){};
+	get_code          : function();
+	is_set_card       : function(set_code);
+	get_type          : function();
+	get_base_attack   : function(swap );
+
+
 }
 
 
-});// end encompasing anonymous function
+//});// end encompasing anonymous function
+function card_sort(){};
