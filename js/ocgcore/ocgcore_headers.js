@@ -253,7 +253,7 @@ function duel(){
 
 	//This first part here is an array buffer and will have to be rewritten if farther code allows;
 	strbuffer      : new String(); 	//256
-	buffer         : 0x1000;
+	buffer         : new ArrayBuffer(0x10000);
 	bufferlin      : null;
 	bufferp        : null;
 	lua            : null;
@@ -266,10 +266,8 @@ function duel(){
 	uncopy         : new Array // of effect(); 's
 	duel           : null; //function defined later that processes this class
 	_duel          : null; //function defined later that loops all te groups.
-
-	
-	
 }
+
 
 	//Player
 	var PLAYER_NONE = 2;
@@ -516,8 +514,8 @@ function group(){
 	//card_set::iterator it; revisit
 	is_readonly : new Number();
 
-	group       : function(){};
-	_group      : function();
+	group       = function(){}
+	_group      = function(){}
 
 
 }
@@ -526,6 +524,12 @@ function group(){
 
 //Effect.h
 
+var EFFECT_H_;
+
+//field.h
+function tevent(){
+	trigger_card : new pointer();
+}
 
 
 //});// end encompasing anonymous function

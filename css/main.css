@@ -97,17 +97,82 @@ textarea {
 
 
 
+body {
+    background: black;
+}
 
+* {box-sizing: border-box;}
 
+.container {
+    width: 980px;
+    margin: 0 auto;
+}
 
+.transparent {
+    background: rgba(255,255,200,.5);
+    border-radius: 20px;
+    height:300px;
+    width:300px;
+    margin:0 auto;
+    margin-top: 150px;
+    padding:0;
+    
+}
 
+.form-body {
+    margin:5px auto; width:280px; height:280px; position: relative; top:10px; color:black;
+    text-align: center;
+    border : 2px solid black;
+}
 
+h1, h2 {
+    text-align: center;
+    line-height: 1.5em;
+    color:#ccc;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: -20px
+}
+h1 {
+    font-size: 72px;
+    
+    line-height: .7em;
+    font-weight: 400;
+    padding-top:20px;
 
+}
+input {
+    margin:0 auto;
+    margin-bottom:5px;
+    display: inherit;
+    font-size:12px;
 
+}
+button{
+    display: inline;
+    text-align: center;
+    padding:2px;
+    background:white;
+    border:none;
+    margin-top:20px;
+    width:64px;
+    font-size: 12px
+}
+select {
+width: 129px;
+font-size: 12px;
+}
 
+.form-body{
+background: rgb(0,0,0);
+background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(96,96,96,1) 62%, rgba(38,38,38,1) 62%, rgba(0,0,0,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(62%,rgba(96,96,96,1)), color-stop(62%,rgba(38,38,38,1)), color-stop(100%,rgba(0,0,0,1)));
+background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(96,96,96,1) 62%,rgba(38,38,38,1) 62%,rgba(0,0,0,1) 100%);
+background: -o-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(96,96,96,1) 62%,rgba(38,38,38,1) 62%,rgba(0,0,0,1) 100%);
+background: -ms-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(96,96,96,1) 62%,rgba(38,38,38,1) 62%,rgba(0,0,0,1) 100%);
+background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(96,96,96,1) 62%,rgba(38,38,38,1) 62%,rgba(0,0,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 );
 
-
-
+}
 
 /* ==========================================================================
    Helper classes

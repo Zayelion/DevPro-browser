@@ -21,4 +21,9 @@
     }
 }());
 
+function pointer(read, write) {
+  return { get value() { return read(); }, set value(v) { return write(v); } };
+  //pointer(function() { return i; }, function(v) { i = v; });
+}
+
 // Place any jQuery/helper plugins in here.
