@@ -4,6 +4,102 @@
 		"selected_items":
 		[
 			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"0x1",
+				"0x1000"
+			],
+			[
+				"var",
+				"varName"
+			],
+			[
+				"p",
+				"playerid"
+			],
+			[
+				"effect",
+				"effect_set"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"count",
+				"counter_map"
+			],
+			[
+				"use",
+				"use_cache"
+			],
+			[
+				"effec",
+				"effect_container"
+			],
+			[
+				"rel",
+				"relation_map"
+			],
+			[
+				"q",
+				"query_cache"
+			],
+			[
+				"nu",
+				"Number"
+			],
+			[
+				"att",
+				"attack"
+			],
+			[
+				"type",
+				"type_"
+			],
+			[
+				"ef",
+				"effect"
+			],
+			[
+				"buf",
+				"buffer_view"
+			],
+			[
+				"buffer",
+				"buffer"
+			],
+			[
+				"bufferh",
+				"bufferheader"
+			],
+			[
+				"bu",
+				"bufferheader_view"
+			],
+			[
+				"ar",
+				"Uint8Array"
+			],
+			[
 				"bp",
 				"bpacketlength"
 			],
@@ -14,10 +110,6 @@
 			[
 				"cover",
 				"convertBuffer"
-			],
-			[
-				"buf",
-				"bufview"
 			],
 			[
 				"b",
@@ -80,10 +172,6 @@
 				"details2"
 			],
 			[
-				"bu",
-				"bufView"
-			],
-			[
 				"js",
 				"json"
 			],
@@ -106,10 +194,6 @@
 			[
 				"a",
 				"Array"
-			],
-			[
-				"p",
-				"packetlength"
 			],
 			[
 				"j",
@@ -138,10 +222,6 @@
 			[
 				"co",
 				"connect"
-			],
-			[
-				"font",
-				"font-size"
 			],
 			[
 				"border",
@@ -199,23 +279,74 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 1673,
+				"buffer_size": 3131,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "js/main.js",
+			"file": "css/main.css",
 			"settings":
 			{
-				"buffer_size": 4181,
+				"buffer_size": 7617,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"file": "/C/emscripten/emconfigure",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Jamezs/.emscripten",
+			"settings":
+			{
+				"buffer_size": 154,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/vendor/supersize/README.md",
+			"settings":
+			{
+				"buffer_size": 3874,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/vendor/supersize/core/js/supersized.core.3.2.1.js",
+			"settings":
+			{
+				"buffer_size": 10040,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/vendor/supersize/core/core.html",
+			"settings":
+			{
+				"buffer_size": 2102,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/vendor/supersize/core/random.html",
+			"settings":
+			{
+				"buffer_size": 4331,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 2654,
+				"buffer_size": 2660,
 				"line_ending": "Windows"
 			}
 		}
@@ -248,6 +379,20 @@
 	},
 	"file_history":
 	[
+		"/C/Users/User/.emscripten",
+		"/C/Users/User/Desktop/DevPro-browser/js/ocgcore/ocgcore_methods.js",
+		"/C/Users/User/Desktop/DevPro-browser/js/plugins.js",
+		"/C/Users/User/Desktop/DevPro-browser/ocgcore.html",
+		"/C/Users/User/Desktop/DevPro-browser/js/ocgcore/ocgcore_headers.js",
+		"/C/Users/User/Desktop/DevPro-browser/README.md",
+		"/C/Users/User/Desktop/DevPro-browser/.gitmodules",
+		"/C/Users/User/Desktop/DevPro-browser/js/vendor/mersenne-twister.js",
+		"/C/Users/User/Desktop/DevPro-browser/.gitignore",
+		"/C/Users/User/Desktop/DevPro-browser/LICENSE.md",
+		"/C/Users/User/Desktop/DevPro-browser/CONTRIBUTING.md",
+		"/C/Users/User/Desktop/DevPro-browser/CHANGELOG.md",
+		"/C/Users/User/Desktop/DevPro-browser/index.html",
+		"/C/Users/User/Desktop/DevPro-browser/js/main.js",
 		"/C/Program Files/DevPro/system.CONF",
 		"/C/Program Files/DevPro/launcher.conf",
 		"/C/Program Files/DevPro/ygopro_vs_ai_debug.exe",
@@ -338,6 +483,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"contain",
+			"new_card",
+			"card_data",
+			"#define",
+			"//",
+			"#define",
+			"pcard",
+			"=",
+			"this.",
+			"this",
+			"var",
 			"login",
 			"access",
 			"username",
@@ -384,7 +540,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -392,15 +548,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 1673,
+						"buffer_size": 3131,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1282,
-								1282
+								0,
+								0
 							]
 						],
 						"settings":
@@ -417,18 +573,125 @@
 				},
 				{
 					"buffer": 1,
-					"file": "js/main.js",
+					"file": "css/main.css",
 					"settings":
 					{
-						"buffer_size": 4181,
+						"buffer_size": 7617,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3710,
-								3710
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/emscripten/emconfigure",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/Jamezs/.emscripten",
+					"settings":
+					{
+						"buffer_size": 154,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/vendor/supersize/README.md",
+					"settings":
+					{
+						"buffer_size": 3874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "js/vendor/supersize/core/js/supersized.core.3.2.1.js",
+					"settings":
+					{
+						"buffer_size": 10040,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -437,25 +700,79 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1034.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": ".gitignore",
+					"buffer": 6,
+					"file": "js/vendor/supersize/core/core.html",
 					"settings":
 					{
-						"buffer_size": 2654,
+						"buffer_size": 2102,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								176,
-								176
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "js/vendor/supersize/core/random.html",
+					"settings":
+					{
+						"buffer_size": 4331,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": ".gitignore",
+					"settings":
+					{
+						"buffer_size": 2660,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
