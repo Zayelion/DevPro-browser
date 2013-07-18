@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"buffer",
+				"buffer_length"
+			],
+			[
+				"p",
+				"packetlength"
+			],
+			[
 				"margin",
 				"margin-top"
 			],
@@ -30,10 +38,6 @@
 			[
 				"var",
 				"varName"
-			],
-			[
-				"p",
-				"playerid"
 			],
 			[
 				"effect",
@@ -82,10 +86,6 @@
 			[
 				"buf",
 				"buffer_view"
-			],
-			[
-				"buffer",
-				"buffer"
 			],
 			[
 				"bufferh",
@@ -275,6 +275,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/Users/User/Desktop/templ/index.html",
+			"settings":
+			{
+				"buffer_size": 10163,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/User/Desktop/templ/js/main.js",
+			"settings":
+			{
+				"buffer_size": 859,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/DevPro/launcher.conf",
+			"settings":
+			{
+				"buffer_size": 3261,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -304,6 +328,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/User/Desktop/DevPro-browser/js/main.js",
 		"/C/Users/User/Desktop/templ/menu_assets/styles.css",
 		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/DevPro-Interface/ranking/ranking.php",
 		"/C/Users/User/Desktop/templ/index.html",
@@ -329,7 +354,6 @@
 		"/C/Users/User/Desktop/DevPro-browser/LICENSE.md",
 		"/C/Users/User/Desktop/DevPro-browser/CONTRIBUTING.md",
 		"/C/Users/User/Desktop/DevPro-browser/CHANGELOG.md",
-		"/C/Users/User/Desktop/DevPro-browser/js/main.js",
 		"/C/Program Files/DevPro/system.CONF",
 		"/C/Program Files/DevPro/launcher.conf",
 		"/C/Program Files/DevPro/ygopro_vs_ai_debug.exe",
@@ -419,6 +443,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"__WSTCPBridge",
 			"css",
 			"window",
 			"#window",
@@ -479,8 +504,92 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/User/Desktop/templ/index.html",
+					"settings":
+					{
+						"buffer_size": 10163,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7518,
+								7531
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1501.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/User/Desktop/templ/js/main.js",
+					"settings":
+					{
+						"buffer_size": 859,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								213,
+								213
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/DevPro/launcher.conf",
+					"settings":
+					{
+						"buffer_size": 3261,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								500,
+								504
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

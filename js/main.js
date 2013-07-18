@@ -1,5 +1,5 @@
 //Buttys node ws-tcp-bridge --method=ws2tcp --lport=9999 --rhost=86.0.24.143:9999
-//EU node ws-tcp-bridge --method=ws2tcp --lport=9999 --rhost=91.250.84.1181:9999
+//EU node ws-tcp-bridge --method=ws2tcp --lport=9999 --rhost=85.214.205.124:8933
 // encodedPassword 1MY5XPo/v7dqOhWNi+faoQ==
 
 
@@ -26,28 +26,11 @@ function onclose(data){
 			console.log('socket internally closed')
 }
 
-function convertBytes(string){
-	var bytes = [];
-	for (var i = 0; i < string.length; ++i){
-		bytes.push('0x'+string.charCodeAt(i));
-	}
-	return bytes;
+function ab2str(buf) {
+  return String.fromCharCode.apply(null, new Uint16Array(buf));
 }
-function convertBytes2(string){
-	var bytes = [];
-	for (var i = 0; i < string.length; ++i){
-		bytes.push(string.charCodeAt(i));
-	}
-	return bytes;
-}
-function convertBuffer(str) {
-	var buf = new ArrayBuffer(str.length*2); // 2 bytes for each char
-	var bufView = new Uint16Array(buf);
-	for (var i=0, strLen=str.length; i<strLen; i++) {
-		bufView[i] = str.charCodeAt(i);
-	}
-	return buf;
-}
+
+
 
 function Authenticator(username, encodedPassword, UID){	// creates an object used for login and storage of data about the attempted login
 	if (username == ""){
@@ -65,16 +48,17 @@ function Authenticator(username, encodedPassword, UID){	// creates an object use
 
 	json 						= '{ Username = '+username+', Password = '+encodedPassword+', UID = '+UID+' }';
 	packetlength				= json.length*2;
-	buffer = new ArrayBuffer(1);
-	buffer_view = new Uint8Array();
-	buffer_view[0] = 0x4;
+
 
 	
 	//packetlength			    = encodeURI(this.json).split(/%..|./).length - 1+'';  //figure out the packet length with Regex
 	details = {};				//storage object
-	details['buffer']			= buffer;
+	details['buffer']			= 0x04;
 	details['packetlength']		= packetlength;
-	details['json']				= json;	
+	details['json']				= json;
+	
+
+	
 	
 	
 
@@ -83,9 +67,7 @@ function Authenticator(username, encodedPassword, UID){	// creates an object use
 
 function loginFn(option){
 	login = new Authenticator(username, encodedPassword, UID);
-	server.socket.send(login.details['buffer']);
-	server.socket.send(login.details['packetlength']);
-	server.socket.send(login.details['json']);
+	server.socket.send(login.details['buffer']+login.details['packetlength']+login.details['json']);
 	console.log(login.details); //print an overview of the login object.
 }
 
