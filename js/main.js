@@ -1,7 +1,4 @@
-// get server information.
-
 //Buttys node ws-tcp-bridge --method=ws2tcp --lport=9999 --rhost=86.0.24.143:9999
-//EU node ws-tcp-bridge --method=ws2tcp --lport=9999 --rhost=85.214.205.124:8933
 // encodedPassword 1MY5XPo/v7dqOhWNi+faoQ==
 
 
@@ -96,7 +93,7 @@ function loginFn(option){
 
 
 
-//ws://echo.websocket.org
-//ws://localhost:9999
+
+
 
 
