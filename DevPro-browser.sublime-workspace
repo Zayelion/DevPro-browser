@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"au",
+				"authString"
+			],
+			[
+				"ext",
+				"externalview"
+			],
+			[
+				"lo",
+				"login"
+			],
+			[
+				"com",
+				"commandview"
+			],
+			[
+				"Bu",
+				"buffer"
+			],
+			[
+				"log",
+				"log"
+			],
+			[
+				"__",
+				"__ServerLocator"
+			],
+			[
+				"ser",
+				"serverdetails"
+			],
+			[
+				"server",
+				"serverdatastring"
+			],
+			[
+				"serverd",
+				"serverdetails"
+			],
+			[
+				"serv",
+				"serverversion"
+			],
+			[
 				"buffer",
 				"buffer_length"
 			],
@@ -136,24 +180,12 @@
 				"in_0x"
 			],
 			[
-				"log",
-				"login"
-			],
-			[
-				"lo",
-				"log"
-			],
-			[
 				"on",
 				"onmessage"
 			],
 			[
 				"fun",
 				"function"
-			],
-			[
-				"ext",
-				"externalhost"
 			],
 			[
 				"exter",
@@ -276,26 +308,26 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/User/Desktop/templ/index.html",
+			"file": "js/main.js",
 			"settings":
 			{
-				"buffer_size": 10163,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/User/Desktop/templ/js/main.js",
-			"settings":
-			{
-				"buffer_size": 859,
+				"buffer_size": 3430,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/D/DevPro/launcher.conf",
+			"file": "/C/Users/User/Desktop/deckuploader/index.php",
 			"settings":
 			{
-				"buffer_size": 3261,
+				"buffer_size": 8289,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 3131,
 				"line_ending": "Windows"
 			}
 		}
@@ -328,14 +360,18 @@
 	},
 	"file_history":
 	[
+		"/C/Users/User/Desktop/DevPro-browser/.gitignore",
+		"/C/Users/User/Desktop/DevPro-browser/location.txt",
+		"/C/Users/User/Desktop/DevPro-browser/apple-touch-icon-precomposed.png",
+		"/C/Users/User/Desktop/DevPro-browser/apple-touch-icon-114x114-precomposed.png",
+		"/D/DevPro/launcher.conf",
+		"/C/Users/User/Desktop/templ/index.html",
+		"/C/Users/User/Desktop/templ/js/main.js",
 		"/C/Users/User/Desktop/DevPro-browser/js/main.js",
 		"/C/Users/User/Desktop/templ/menu_assets/styles.css",
 		"/C/Users/User/Dropbox/DevPro Projects/AccessDenied Projects/DevPro-Interface/ranking/ranking.php",
-		"/C/Users/User/Desktop/templ/index.html",
 		"/C/Users/User/Desktop/templ/js/navi.js",
-		"/C/Users/User/Desktop/templ/js/main.js",
 		"/C/Users/User/Desktop/DevPro-browser/js/ocgcore/ocgcore_methods.js",
-		"/C/Users/User/Desktop/DevPro-browser/.gitignore",
 		"/C/Users/User/Desktop/DevPro-browser/js/vendor/supersize/core/random.html",
 		"/C/Users/User/Desktop/DevPro-browser/js/vendor/supersize/core/core.html",
 		"/C/Users/User/Desktop/DevPro-browser/js/vendor/supersize/core/js/supersized.core.3.2.1.js",
@@ -509,46 +545,18 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/User/Desktop/templ/index.html",
+					"file": "js/main.js",
 					"settings":
 					{
-						"buffer_size": 10163,
+						"buffer_size": 3430,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7518,
-								7531
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1501.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/Users/User/Desktop/templ/js/main.js",
-					"settings":
-					{
-						"buffer_size": 859,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								213,
-								213
+								3423,
+								3423
 							]
 						],
 						"settings":
@@ -557,31 +565,59 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1275.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "/D/DevPro/launcher.conf",
+					"buffer": 1,
+					"file": "/C/Users/User/Desktop/deckuploader/index.php",
 					"settings":
 					{
-						"buffer_size": 3261,
+						"buffer_size": 8289,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								500,
-								504
+								8258,
+								8258
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2283.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 3131,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,

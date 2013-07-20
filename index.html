@@ -22,7 +22,7 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <div id='wrapper'>
+        <div id='wrapper'  id='login'>
             <div class="container">
                 <div class="transparent">
                     <div class="transparent form-body" >
@@ -30,17 +30,17 @@
                         <h2>DevPro Online</h2>
                         <form action="">
                             
-                            <input type="text" placeholder='Username' >
+                            <input type="text" placeholder='Username' id='username' >
                             
-                            <input type="password" placeholder='Password' >
+                            <input type="password" placeholder='Password' id='password'>
                             <br style='height:20px;'>
                             <select placeholder='Language' >
                                 <option value="English">English</option>
                                 <option value="German">German</option>
 
                             </select><br />
-                            <button style='background: green;'>Login</button>
-                            <button>Register</button>
+                            <div style='background: green;width:50%; margin:10px auto;' id='loginbutton' onclick='login()'>Login</div>
+                            
                         </form>
                     </div>
                 </div>
