@@ -1,3 +1,10 @@
+window.setInterval(function() {
+  var elem = document.getElementById('chatbox');
+  elem.scrollTop = elem.scrollHeight;
+}, 500);
+
+
+chatserver	= new __WSTCPBridge('ws://localhost:1337');
 //code execution
 var CurrentVersion = '193100' // https://github.com/Buttys/DevProLauncher/blob/master/Program.cs line 19
 var encodedPassword	= '1MY5XPo/v7dqOhWNi+faoQ==';
@@ -35,7 +42,27 @@ function __WSTCPBridge(externalhost){
 		
 	}
 	function onmessage(message){
-		console.log('Recieved: '+message.data);
+		process =message.data.substr(0, message.data.length-0)
+		eval("json = "+process +" ;");
+		eval("json.content = "+json.content +" ;");
+		if (json.id == 3){
+			chatserver.socket.send(JSON.stringify({id: 9, content: 'DevPro-English'}));
+		}
+		if (json.id == 13){
+			$('#users')
+			.append(
+				'<li id="userlist-'+json.content.username+'"">'+json.content.username+'</li>')
+		}
+		if (json.id == 14){
+			$('#userlist-'+json.content.username).remove();
+		}
+		if (json.id == 17){
+			console.log(json)
+			if(json.content.command == 1){name = '<em>'}else{name = '<strong>'+json.content.from.username+':</strong> '}
+			$('#chatbox').append('<li>'+name+json.content.message+'</li>');
+		}
+		if (json.id != 17 || 13 || 14 ){console.log(json)};
+
 	}
 	function onclose(data){
 		console.log('socket internally closed')
@@ -51,6 +78,7 @@ function send_message(message,room,target){
 	target.socket.send('MSG|'+room+'|'+message);
 
 };
+
 function login(){	// creates an object used for login and storage of data about the attempted login
 	if ($('#username').val() == ""){
 		alert('Username can not be empty');
@@ -61,10 +89,25 @@ function login(){	// creates an object used for login and storage of data about 
 		return false;
 	}
 	details		= JSON.stringify({id: 4, username:$('#username').val(), password:$('#password').val()}); // 4 = Login
-	
-	
 	//location	= new __ServerLocator();
-	chatserver	= new __WSTCPBridge('ws://localhost:1337');
-	setTimeout(function() {chatserver.socket.send(details);}, 60);
+	
+	chatserver.socket.send(details);
+	
+	$('#login').fadeToggle('slow');
+	$('#chat').fadeToggle('slow');
 	
 }
+$(document).ready(function() {
+messageon = function(e){
+	command = 0;
+	if ( $('#chat input').val() == ""){return false}
+	messagesend = $('#chat input').val();
+	$('#chat input').val("");
+	if (messagesend.substr(0,3) == '/me '){command = 1}
+	string = JSON.stringify({type: 1, command: 0, channel: "DevPro-English", message: messagesend});
+	chatserver.socket.send(JSON.stringify({id: 8, content: string}));
+	console.log(string);
+	
+	return false;
+};
+});
