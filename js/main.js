@@ -1,9 +1,40 @@
+jQuery.fn.urlize = function() {
+    if (this.length > 0) {
+        this.each(function(i, obj){
+            // making links active
+            var x = $(obj).html();
+            var list = x.match( /\b(http:\/\/|www\.|http:\/\/www\.)[^ <]{2,200}\b/g );
+            if (list) {
+                for ( i = 0; i < list.length; i++ ) {
+                    var prot = list[i].indexOf('http://') === 0 || list[i].indexOf('https://') === 0 ? '' : 'http://';
+                    x = x.replace( list[i], "<a target='_blank' href='" + prot + list[i] + "'>"+ list[i] + "</a>" );
+                }
+
+            }
+            $(obj).html(x);
+        });
+    }
+};
+
+
+
+autoscroll1 = function(){var elem = document.getElementById('chatbox');elem.scrollTop = elem.scrollHeight;};
+
+autoscroll = 0;
 window.setInterval(function() {
-  var elem = document.getElementById('chatbox');
-  elem.scrollTop = elem.scrollHeight;
+	
+  if( autoscroll >= 0  ){autoscroll1();}
+ 	autoscroll--;
 }, 500);
 
 
+$('input').click(function(){
+	autoscroll = 15;
+
+});
+$('#chatbox input').blur(function(){
+	autoscroll = 0;
+});
 chatserver	= new __WSTCPBridge('ws://localhost:1337');
 //code execution
 var CurrentVersion = '193100' // https://github.com/Buttys/DevProLauncher/blob/master/Program.cs line 19
@@ -14,7 +45,20 @@ var serverlocation	= new __ServerLocator((function(){/*should system print conne
 var chatserver;
 var login;
 var previousMessage;
+var linecount = 0
+var servermessagecount = 0;
+var bank = [];
+function sortusers (){
+	var mylist = $('#users');
+var listitems = mylist.children('li').get();
+listitems.sort(function(a, b) {
+   var compA = $(a).text().toUpperCase();
+   var compB = $(b).text().toUpperCase();
+   return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+})
+$.each(listitems, function(idx, itm) { mylist.append(itm); });
 
+}
 function __ServerLocator (print) {
 	var serverlocation	= ''; 
 	var serverdetails	= [];
@@ -45,6 +89,7 @@ function __WSTCPBridge(externalhost){
 		process =message.data.substr(0, message.data.length-0)
 		eval("json = "+process +" ;");
 		eval("json.content = "+json.content +" ;");
+		
 		if (json.id == 3){
 			chatserver.socket.send(JSON.stringify({id: 9, content: 'DevPro-English'}));
 		}
@@ -52,18 +97,26 @@ function __WSTCPBridge(externalhost){
 			$('#users')
 			.append(
 				'<li id="userlist-'+json.content.username+'"">'+json.content.username+'</li>')
+			sortusers();
 		}
 		if (json.id == 14){
 			$('#userlist-'+json.content.username).remove();
 		}
 		if (json.id == 17){
-			console.log(json)
+			
 			if(json.content.command == 1){name = '<em>'}else{name = '<strong>'+json.content.from.username+':</strong> '}
-			$('#chatbox').append('<li>'+name+json.content.message+'</li>');
+			$('#chatbox').append('<li id="linecount-'+linecount+'">'+name+json.content.message+'</li>');
+			$('#linecount-'+linecount).urlize();
+			linecount = linecount+1;
 		}
-		if (json.id != 17 || 13 || 14 ){console.log(json)};
-
+		
+		bank[servermessagecount] = json;
+		servermessagecount = servermessagecount +1;
 	}
+		
+
+
+	
 	function onclose(data){
 		console.log('socket internally closed')
 	}
@@ -106,7 +159,7 @@ messageon = function(e){
 	if (messagesend.substr(0,3) == '/me '){command = 1}
 	string = JSON.stringify({type: 1, command: 0, channel: "DevPro-English", message: messagesend});
 	chatserver.socket.send(JSON.stringify({id: 8, content: string}));
-	console.log(string);
+	
 	
 	return false;
 };
