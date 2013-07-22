@@ -211,8 +211,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 
 }
 #chatbox li { font-size:11pt; border-bottom: 1px solid #ccc; padding:2px 0;  margin-bottom:2px;}
-#chatbody input {width:100%; height: 3em; padding: .5em; width:99%;}
+#chatbody input {width:100%; height: 3em; padding: .5em; width:100%;}
 #chatbody em { color:#444;}
+
+.dev-1 {color:blue; font-weight:normal}
+.dev-2 {color:red; font-weight:normal}
+.dev-3 {color:red; font-weight:normal}
+.dev-4 {color:blue; font-weight:normal}
+.dev-99 {color:green; font-weight:normal}
+.dev-100 {color:silver; font-weight:normal}
+
+#chatrooms {width:100%; list-style: none;height: 37px;
+margin: 0; overflow: auto; float:left; color:white;
+margin-top: -12px; padding:0;}
+#chatrooms li {float:left; border:1px solid white;float: left;
+    overflow: auto; padding:4px; }
 
 
 /* ==========================================================================

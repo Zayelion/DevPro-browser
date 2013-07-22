@@ -48,6 +48,7 @@ var previousMessage;
 var linecount = 0
 var servermessagecount = 0;
 var bank = [];
+
 function sortusers (){
 	var mylist = $('#users');
 var listitems = mylist.children('li').get();
@@ -92,22 +93,24 @@ function __WSTCPBridge(externalhost){
 		
 		if (json.id == 3){
 			chatserver.socket.send(JSON.stringify({id: 9, content: 'DevPro-English'}));
+			$('ol#chatrooms').append('<li>DevPro-English</li>');
 		}
 		if (json.id == 13){
+			if (json.content.rank >= 1 ){rank = "[<span class='dev-"+json.content.rank +"''>Dev</span>]";}else{rank = "";}
 			$('#users')
 			.append(
-				'<li id="userlist-'+json.content.username+'"">'+json.content.username+'</li>')
+				'<li id="userlist-'+json.content.username+'"">'+rank+json.content.username+'</li>')
 			sortusers();
 		}
 		if (json.id == 14){
 			$('#userlist-'+json.content.username).remove();
 		}
 		if (json.id == 17){
+			if (json.content.from.rank >= 1 ){rank = "[<span class='dev-"+json.content.from.rank +"''>Dev</span>]";}else{rank = "";}
+			if(json.content.command == 1){name = '<em>'+rank}else{name = '<strong>'+rank+json.content.from.username+':</strong> '}
+			$('#chatbox').append('<li id="linecount-'+servermessagecount+'">'+name+json.content.message+'</li>');
+			$('#linecount-'+servermessagecount).urlize();
 			
-			if(json.content.command == 1){name = '<em>'}else{name = '<strong>'+json.content.from.username+':</strong> '}
-			$('#chatbox').append('<li id="linecount-'+linecount+'">'+name+json.content.message+'</li>');
-			$('#linecount-'+linecount).urlize();
-			linecount = linecount+1;
 		}
 		
 		bank[servermessagecount] = json;
@@ -127,10 +130,7 @@ function __WSTCPBridge(externalhost){
 
 
 
-function send_message(message,room,target){
-	target.socket.send('MSG|'+room+'|'+message);
 
-};
 
 function login(){	// creates an object used for login and storage of data about the attempted login
 	if ($('#username').val() == ""){
@@ -146,8 +146,8 @@ function login(){	// creates an object used for login and storage of data about 
 	
 	chatserver.socket.send(details);
 	
-	$('#login').fadeToggle('slow');
-	$('#chat').fadeToggle('slow');
+	$('#login').toggle();
+	$('#chat').fadeToggle(1250);
 	
 }
 $(document).ready(function() {
@@ -156,7 +156,7 @@ messageon = function(e){
 	if ( $('#chat input').val() == ""){return false}
 	messagesend = $('#chat input').val();
 	$('#chat input').val("");
-	if (messagesend.substr(0,3) == '/me '){command = 1}
+	if (messagesend[0] == '/ '){command = 1}
 	string = JSON.stringify({type: 1, command: 0, channel: "DevPro-English", message: messagesend});
 	chatserver.socket.send(JSON.stringify({id: 8, content: string}));
 	

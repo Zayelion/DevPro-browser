@@ -23,6 +23,21 @@
         <![endif]-->
 
         <div id='wrapper'>
+            <div class="transparent container" id='chat' >
+                    <div id='chatbody'>
+                        <ul id='chatbox'>
+                            
+                        </ul>
+                        <ul id='users'>
+                        </ul>
+                        <ol id='chatrooms' class='form-body'></ol>
+                        <input onclick = 'messageon();'/>
+                        
+                    </div>
+
+            </div>
+
+
             <div class="container" >
                 <div class="transparent" id='login'>
                     <div class="transparent form-body" >
@@ -39,25 +54,13 @@
                                 <option value="German">German</option>
 
                             </select><br />
-                            <div style='background: green;width:50%; margin:10px auto;' id='loginbutton' onclick='login()'>Login</div>
+                            <div style='color:white; background: purple;width:45%; margin:10px auto;' id='loginbutton' onclick='login()'>Login</div>
                             
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="transparent container" id='chat' >
-                    <div id='chatbody'>
-                        <ul id='chatbox'>
-                            
-                        </ul>
-                        <ul id='users'>
-                        </ul>
-                        
-                            <input onclick = 'messageon();'/>
-                        
-                    </div>
-
-            </div>
+            
 
             </div>
 
@@ -81,7 +84,7 @@
             jQuery(function($){
                 
                 $.supersized({
-                    slides  :   [ {image : 'bg.jpg', title : 'Image Credit: astau-d4oa562'} ]
+                    slides  :   [ {image : 'http://rule34-data-003.paheal.net/_images/65ed6c55a2db18933a33623a8cdaedab/1045489%20-%20Yu-Gi-Oh!%20High_Priestess_of_Prophecy%20Prophecy.jpg', image: 'bg.jpg'} ]
                 });
             });
             
