@@ -23,15 +23,21 @@
         <![endif]-->
 
         <div id='wrapper'>
+
             <div class="transparent container" id='chat' >
                     <div id='chatbody'>
-                        <ul id='chatbox'>
+                        <div id='chatbox'>
+                        <ul >
                             
                         </ul>
+                    </div>
                         <ul id='users'>
                         </ul>
                         <ol id='chatrooms' class='form-body'></ol>
-                        <input onclick = 'messageon();'/>
+                        <form id='chatform'> 
+                            <input placeholder='Enter text here,...'/>
+                            <button type='button'>Send</button>
+                        </form>
                         
                     </div>
 

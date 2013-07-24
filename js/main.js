@@ -48,14 +48,15 @@ var previousMessage;
 var linecount = 0
 var servermessagecount = 0;
 var bank = [];
+var errorcatch; // error catch for debuging unprocessed json strings.
 
 function sortusers (){
 	var mylist = $('#users');
-var listitems = mylist.children('li').get();
-listitems.sort(function(a, b) {
-   var compA = $(a).text().toUpperCase();
-   var compB = $(b).text().toUpperCase();
-   return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+	var listitems = mylist.children('li').get();
+	listitems.sort(function(a, b) {
+	var compA = $(a).text().toUpperCase();
+	var compB = $(b).text().toUpperCase();
+	return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
 })
 $.each(listitems, function(idx, itm) { mylist.append(itm); });
 
@@ -88,12 +89,12 @@ function __WSTCPBridge(externalhost){
 	}
 	function onmessage(message){
 		process =message.data.substr(0, message.data.length-0)
-		eval("json = "+process +" ;");
-		eval("json.content = "+json.content +" ;");
-		
+		try {
+			eval("json = "+process +" ;");
+			eval("json.content = "+json.content +" ;");
+		}catch(e){}
 		if (json.id == 3){
-			chatserver.socket.send(JSON.stringify({id: 9, content: 'DevPro-English'}));
-			$('ol#chatrooms').append('<li>DevPro-English</li>');
+			joinroom('DevPro-English');
 		}
 		if (json.id == 13){
 			if (json.content.rank >= 1 ){rank = "[<span class='dev-"+json.content.rank +"''>Dev</span>]";}else{rank = "";}
@@ -108,13 +109,18 @@ function __WSTCPBridge(externalhost){
 		if (json.id == 17){
 			if (json.content.from.rank >= 1 ){rank = "[<span class='dev-"+json.content.from.rank +"''>Dev</span>]";}else{rank = "";}
 			if(json.content.command == 1){name = '<em>'+rank}else{name = '<strong>'+rank+json.content.from.username+':</strong> '}
-			$('#chatbox').append('<li id="linecount-'+servermessagecount+'">'+name+json.content.message+'</li>');
+			$('#room-'+json.content.channel).append('<li id="linecount-'+servermessagecount+'">'+name+json.content.message+'</li>');
 			$('#linecount-'+servermessagecount).urlize();
 			
 		}
+		KNOWN = [3,4,13,14,17];
+		if ($.inArray(json.id, KNOWN) == -1){console.log(json);}
 		
+
 		bank[servermessagecount] = json;
 		servermessagecount = servermessagecount +1;
+
+		
 	}
 		
 
@@ -125,7 +131,12 @@ function __WSTCPBridge(externalhost){
 	}
 }
 
-
+joinroom = function(roomtojoin){
+	chatserver.socket.send(JSON.stringify({id: 9, content: roomtojoin}));
+	$('#chatbox').append('<ul class="active" id=room-'+roomtojoin+'></ul>');
+	$('#chatrooms').append('<li class="active" id=control-'+roomtojoin+'>'+roomtojoin+'</li>');
+	$('#chatbox ul, #chatrooms li').not('#'+roomtojoin).removeClass('active');
+}
 
 
 
@@ -151,16 +162,22 @@ function login(){	// creates an object used for login and storage of data about 
 	
 }
 $(document).ready(function() {
-messageon = function(e){
-	command = 0;
-	if ( $('#chat input').val() == ""){return false}
-	messagesend = $('#chat input').val();
-	$('#chat input').val("");
-	if (messagesend[0] == '/ '){command = 1}
-	string = JSON.stringify({type: 1, command: 0, channel: "DevPro-English", message: messagesend});
-	chatserver.socket.send(JSON.stringify({id: 8, content: string}));
-	
-	
-	return false;
-};
-});
+	messageon = function(e){
+		command = 0;
+		if ( $('#chat input').val() == ""){return false}
+		messagesend = $('#chat input').val();
+		
+
+		$('#chat input').val("");
+		if (messagesend[0] == '/ '){command = 1}
+		string = JSON.stringify({type: 1, command: 0, channel: "DevPro-English", message: messagesend});
+		chatserver.socket.send(JSON.stringify({id: 8, content: string}));
+		autoscroll = 15;
+		
+		
+	};
+	$('#chatform').submit(function () {
+	 messageon();
+	 return false;
+	});
+});// end ready document
