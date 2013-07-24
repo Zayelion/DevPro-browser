@@ -185,10 +185,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
     box-shadow: 0 0 50px 20px black;
 }
 #chatbody{
-    
-    height:90%;
-    
+    float:left;
+    height:80%;
+    width:100%;
 }
+    
+    
+
+#chatbox{float:left; width: 80%; height:100%; overflow-y: hidden;}
 #login {box-shadow: 0 0 50px 10px black;}
 #chat ul {}
 #users {
@@ -206,14 +210,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
     background: rgba(255,255,255,.75); height:100%; float:left; list-style: none; overflow: scroll; margin:0; padding: 0;
     padding-left:10px;
     border: 2px solid black;
-    width:80%;
+    width:100%;
     overflow-x: hidden;
+    overflow-y 
 
 }
 #chatbox ul li { font-size:11pt; border-bottom: 1px solid #ccc; padding:2px 0;  margin-bottom:2px;}
-#chatbody input {width:100%; height: 3em; padding: .5em; width:100%;}
+#chat input {width:100%; height: 3em; padding: .5em; width:100%;}
 #chatbody em { color:#999;}
-#chatbox {height:600px; overflow-y: scroll;}
+#chatform {
+    float: left;
+    margin-top: 44px;
+    width: 100%;
+}
 
 .dev-1 {color:blue; font-weight:normal}
 .dev-2 {color:red; font-weight:normal}
@@ -227,6 +236,8 @@ margin: 0; overflow: auto; float:left; color:white;
 margin-top: -12px; padding:0;}
 #chatrooms li {float:left; border:1px solid white;float: left;
     overflow: auto; padding:4px; }
+#chatbody {width:;}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

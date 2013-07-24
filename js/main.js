@@ -15,10 +15,10 @@ jQuery.fn.urlize = function() {
         });
     }
 };
+var currentroom;
 
 
-
-autoscroll1 = function(){var elem = document.getElementById('chatbox');elem.scrollTop = elem.scrollHeight;};
+autoscroll1 = function(){var elem = document.getElementById(currentroom);elem.scrollTop = elem.scrollHeight;};
 
 autoscroll = 0;
 window.setInterval(function() {
@@ -32,9 +32,7 @@ $('input').click(function(){
 	autoscroll = 15;
 
 });
-$('#chatbox input').blur(function(){
-	autoscroll = 0;
-});
+
 chatserver	= new __WSTCPBridge('ws://localhost:1337');
 //code execution
 var CurrentVersion = '193100' // https://github.com/Buttys/DevProLauncher/blob/master/Program.cs line 19
@@ -133,9 +131,10 @@ function __WSTCPBridge(externalhost){
 
 joinroom = function(roomtojoin){
 	chatserver.socket.send(JSON.stringify({id: 9, content: roomtojoin}));
-	$('#chatbox').append('<ul class="active" id=room-'+roomtojoin+'></ul>');
+	$('#chatbox').append('<ul class="room active" id=room-'+roomtojoin+'></ul>');
 	$('#chatrooms').append('<li class="active" id=control-'+roomtojoin+'>'+roomtojoin+'</li>');
 	$('#chatbox ul, #chatrooms li').not('#'+roomtojoin).removeClass('active');
+	currentroom = 'room-'+roomtojoin;
 }
 
 
@@ -176,8 +175,12 @@ $(document).ready(function() {
 		
 		
 	};
-	$('#chatform').submit(function () {
+	$('#chatform').click(function () {
+		autoscroll1();
+	});
+	$('#chatform').submit(function() {
 	 messageon();
+	 autoscroll1();
 	 return false;
 	});
 });// end ready document
