@@ -210,17 +210,21 @@ messageon = function(e){
 		idn = 8;
 		if ( $('#chat input').val() == ""){return false}
 		messagesend = $('#chat input').val();
+		$('#chat input').val("");
 
-		if ($('#chat input').val().substr(0,3) == '/me'){
-			//if(true){alert('not implemeted');return false;}
-			
+		if( messagesend.substr(0,3) == '/me'){
 			type = 1;
 			command = 1;
 			commandarray = messagesend.split(' ');
 			cut = commandarray[0].length;
 			messagesend= messagesend.substr(cut);
-			out = {id: idn, content:{type: type, command: command, channel: activeroom, message: messagesend}};
-
+		}
+		if (messagesend.substr(0,5) == '/kick'){
+			//if(true){alert('not implemeted');return false;}
+			command = 'KICK';
+			messagesend= messagesend.substr(6);
+			console.log(JSON.stringify({id: 18, content : {command : command, data : messagesend}}));
+			chatserver.socket.send(JSON.stringify({id: 18, content : {command : command, data : messagesend}}));
 		}
 
 		
@@ -228,7 +232,7 @@ messageon = function(e){
 		string = JSON.stringify({type: 1, command: command, channel: activeroom, message: messagesend});
 		chatserver.socket.send(JSON.stringify({id: idn, content: string}));
 		autoscroll = 60;
-		$('#chat input').val("");
+		
 
 	};
 $(document).ready(function() {
