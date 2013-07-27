@@ -1,26 +1,11 @@
-jQuery.fn.urlize = function() {
-    if (this.length > 0) {
-        this.each(function(i, obj){
-            // making links active
-            var x = $(obj).html();
-            var list = x.match( /\b(http:\/\/|www\.|http:\/\/www\.)[^ <]{2,200}\b/g );
-            if (list) {
-                for ( i = 0; i < list.length; i++ ) {
-                    var prot = list[i].indexOf('http://') === 0 || list[i].indexOf('https://') === 0 ? '' : 'http://';
-                    x = x.replace( list[i], "<a target='_blank' href='" + prot + list[i] + "'>"+ list[i] + "</a>" );
-                }
 
-            }
-            $(obj).html(x);
-        });
-    }
-};
 var currentroom;
 
 
 autoscroll1 = function(){var elem = document.getElementById(currentroom);elem.scrollTop = elem.scrollHeight;};
 
 autoscroll = 0;
+window.setInterval(function() {sortdevs();sortusers}, 10000);
 window.setInterval(function() {
 	
   if( autoscroll >= 0  ){
@@ -93,7 +78,7 @@ function __ServerLocator (print) {
 	GamePort	: serverdetails[3]; //Server Game listings -Login
 	DuelServer	: serverdetails[4]; //CLient to core connections
 }
-activeroom ='';
+activeroom ='DevPro-English';
 function __WSTCPBridge(externalhost){
 	this.socket 			= new window.WebSocket(externalhost) || window.MozWebSocket;
 	this.socket.onmessage	= function (e) {onmessage(e)};
@@ -108,59 +93,71 @@ function __WSTCPBridge(externalhost){
 			eval("json = "+process +" ;");
 			eval("json.content = "+json.content +" ;");
 		}catch(e){}
-				if (json.id == 3){
-					console.log('login accepted');
-					chatserver.socket.send(JSON.stringify({id: 6, content: ''}));
-			joinroom('DevPro-English');
-			
-			
-		}
-		if (json.id == 12){
-			for (var i = json.content.length - 1; i >= 0; i--) {
-				if (json.content[i].rank >= 1 ){rank = "[<span class='dev-"+json.content[i].rank +"''>Dev</span>]";}else{rank = "";}
-				$('#users').append(
-				'<li id="userlist-'+json.content[i].username+'"">'+rank+json.content[i].username+'</li>')
-			};
-			//sortdevs();
-			sortusers();
-			usercount();
-		}
-		if (json.id == 13){
-			if (json.content.rank >= 1 ){rank = "[<span class='dev-"+json.content.rank +"''>Dev</span>]";}else{rank = "";}
-			$('#users')
-			.append(
-				'<li id="userlist-'+json.content.username+'"">'+rank+json.content.username+'</li>')
-			//sortusers();
-			usercount();
-		}
-		if (json.id == 14){
-			$('#userlist-'+json.content.username).remove();
-		}
-		if (json.id == 15){ //friends list
-		}
-		if (json.id == 16){ //you joined room json.content
-		}
-		if (json.id == 17){ 
-				if (json.content.type == 1){
-				if (json.content.from.rank >= 1 ){rank = "[<span class='dev-"+json.content.from.rank +"''>Dev</span>]";}else{rank = "";}
-				if(json.content.command == 1){name = '<em>'+rank}else{name = '<strong>'+rank+json.content.from.username+':</strong> '}
-				$('#room-'+json.content.channel).append('<li id="linecount-'+servermessagecount+'">'+name+json.content.message+'</li>');
-				$('#linecount-'+servermessagecount).urlize();
-			}else{
-				$('#room-'+activeroom).append('<li id="linecount-'+servermessagecount+'">Server :'+json.content.message+'</li>');
-			     
-			     console.log(JSON.stringify(json));}
-			
-		}
-		
-		KNOWN = [3,4,12,13,14,15,16,17];
-		if ($.inArray(json.id, KNOWN) == -1){console.log(json);}
-		
+		switch (json.id){
+			//--------------
+			case 3: {
+				console.log('Login accepted');
+				chatserver.socket.send(JSON.stringify({id: 6, content: ''}));
+				joinroom(activeroom);
+			}break;
+			//--------------
+			case 12: {
+				for (var i = json.content.length - 1; i >= 0; i--) {
+					if (json.content[i].rank >= 1 ){rank = "[<span class='dev-"+json.content[i].rank +"''>Dev</span>]";}else{rank = "";}
+					$('#users')
+						.append('<li id="userlist-'+json.content[i].username+'"">'+rank+json.content[i].username+'</li>');
+				};
+				//sortdevs();
+				sortusers();
+				usercount();
+			}break;
+			//--------------
+			case 13: {
+				if (json.content.rank >= 1 ){rank = "[<span class='dev-"+json.content.rank +"''>Dev</span>]";}else{rank = "";}
+				$('#users')
+				.append('<li id="userlist-'+json.content.username+'"">'+rank+json.content.username+'</li>');
+				//sortusers();
+				usercount();
+			}break;
+			//--------------
+			case 14:{
+				$('#userlist-'+json.content.username).remove();
+			}break;
+			//--------------
+			case 15:{
+				console.log('Friends list recived:'+json);
+			}break;
+			//--------------
+			case 16: {
+				console.log('Joined '+json.content);
+			}break;
+			case 17: { 
+				switch (json.content.type){
+					case 1 :
+						{if (json.content.from.rank >= 1 ){rank = "[<span class='dev-"+json.content.from.rank +"''>Dev</span>]";}else{rank = "";}
+						if(json.content.command == 1){name = '<em>'+rank}else{name = '<strong>'+rank+json.content.from.username+':</strong> '}
+						$('#room-'+json.content.channel)
+							.append('<li id="linecount-'+servermessagecount+'">'+name+json.content.message+'</li>');
+						$('#linecount-'+servermessagecount)
+							.urlize();
 
+					}break;
+					case 2 : {
+						$('#room-'+activeroom)
+							.append('<li id="linecount-'+servermessagecount+'">Server :'+json.content.message+'</li>');
+				    }break;
+				    default:{
+				    	console.log('Unknown ID:17 '+json);
+				    }
+				}
+			}break;
+			default:{
+				console.log(json);
+				alert('new data');
+			}
+		}			
 		bank[servermessagecount] = json;
 		servermessagecount = servermessagecount +1;
-
-		
 	}
 		
 
