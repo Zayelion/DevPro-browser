@@ -51,7 +51,20 @@ var servermessagecount = 0;
 var bank = [];
 var errorcatch; // error catch for debuging unprocessed json strings.
 
+function sortdevs (){
+	var mylist = $('#users');
+	var listitems = mylist.children("li:contains('[')").get();
+	listitems.sort(function(a, b) {
+	var compA = $(a).text().toUpperCase();
+	var compB = $(b).text().toUpperCase();
+
+	return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+})
+$.each(listitems, function(idx, itm) { mylist.append(itm); });
+
+}
 function sortusers (){
+	
 	var mylist = $('#users');
 	var listitems = mylist.children('li').not(":contains('[')").get();
 	listitems.sort(function(a, b) {
@@ -108,6 +121,7 @@ function __WSTCPBridge(externalhost){
 				$('#users').append(
 				'<li id="userlist-'+json.content[i].username+'"">'+rank+json.content[i].username+'</li>')
 			};
+			//sortdevs();
 			sortusers();
 			usercount();
 		}
@@ -116,7 +130,7 @@ function __WSTCPBridge(externalhost){
 			$('#users')
 			.append(
 				'<li id="userlist-'+json.content.username+'"">'+rank+json.content.username+'</li>')
-			sortusers();
+			//sortusers();
 			usercount();
 		}
 		if (json.id == 14){
@@ -196,17 +210,16 @@ messageon = function(e){
 		idn = 8;
 		if ( $('#chat input').val() == ""){return false}
 		messagesend = $('#chat input').val();
-		if ($('#chat input').val()[0] == '\/'){
-			if(true){alert('not implemeted');return false;}
-			idn = 18;
-			type = '';
-			commandarray = messagesend.split(' ');
-			command = commandarray[0];
-			cut = commandarray[0].length;
-			command = command.substring(1).toUpperCase();
+
+		if ($('#chat input').val().substr(0,3) == '/me'){
+			//if(true){alert('not implemeted');return false;}
 			
+			type = 1;
+			command = 1;
+			commandarray = messagesend.split(' ');
+			cut = commandarray[0].length;
 			messagesend= messagesend.substr(cut);
-			console.log({id: idn, content:{type: 1, command: command, channel: activeroom, message: messagesend}});
+			out = {id: idn, content:{type: type, command: command, channel: activeroom, message: messagesend}};
 
 		}
 
