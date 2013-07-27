@@ -23,7 +23,10 @@ autoscroll1 = function(){var elem = document.getElementById(currentroom);elem.sc
 autoscroll = 0;
 window.setInterval(function() {
 	
-  if( autoscroll >= 0  ){autoscroll1();}
+  if( autoscroll >= 0  ){
+  	try{autoscroll1();
+  	}catch(e){};
+  }
  	autoscroll--;
 }, 500);
 
@@ -50,10 +53,11 @@ var errorcatch; // error catch for debuging unprocessed json strings.
 
 function sortusers (){
 	var mylist = $('#users');
-	var listitems = mylist.children('li').get();
+	var listitems = mylist.children('li').not(":contains('[')").get();
 	listitems.sort(function(a, b) {
 	var compA = $(a).text().toUpperCase();
 	var compB = $(b).text().toUpperCase();
+
 	return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
 })
 $.each(listitems, function(idx, itm) { mylist.append(itm); });
@@ -76,7 +80,7 @@ function __ServerLocator (print) {
 	GamePort	: serverdetails[3]; //Server Game listings -Login
 	DuelServer	: serverdetails[4]; //CLient to core connections
 }
-
+activeroom ='';
 function __WSTCPBridge(externalhost){
 	this.socket 			= new window.WebSocket(externalhost) || window.MozWebSocket;
 	this.socket.onmessage	= function (e) {onmessage(e)};
@@ -91,8 +95,21 @@ function __WSTCPBridge(externalhost){
 			eval("json = "+process +" ;");
 			eval("json.content = "+json.content +" ;");
 		}catch(e){}
-		if (json.id == 3){
+				if (json.id == 3){
+					console.log('login accepted');
+					chatserver.socket.send(JSON.stringify({id: 6, content: ''}));
 			joinroom('DevPro-English');
+			
+			
+		}
+		if (json.id == 12){
+			for (var i = json.content.length - 1; i >= 0; i--) {
+				if (json.content[i].rank >= 1 ){rank = "[<span class='dev-"+json.content[i].rank +"''>Dev</span>]";}else{rank = "";}
+				$('#users').append(
+				'<li id="userlist-'+json.content[i].username+'"">'+rank+json.content[i].username+'</li>')
+			};
+			sortusers();
+			usercount();
 		}
 		if (json.id == 13){
 			if (json.content.rank >= 1 ){rank = "[<span class='dev-"+json.content.rank +"''>Dev</span>]";}else{rank = "";}
@@ -100,18 +117,29 @@ function __WSTCPBridge(externalhost){
 			.append(
 				'<li id="userlist-'+json.content.username+'"">'+rank+json.content.username+'</li>')
 			sortusers();
+			usercount();
 		}
 		if (json.id == 14){
 			$('#userlist-'+json.content.username).remove();
 		}
-		if (json.id == 17){
-			if (json.content.from.rank >= 1 ){rank = "[<span class='dev-"+json.content.from.rank +"''>Dev</span>]";}else{rank = "";}
-			if(json.content.command == 1){name = '<em>'+rank}else{name = '<strong>'+rank+json.content.from.username+':</strong> '}
-			$('#room-'+json.content.channel).append('<li id="linecount-'+servermessagecount+'">'+name+json.content.message+'</li>');
-			$('#linecount-'+servermessagecount).urlize();
+		if (json.id == 15){ //friends list
+		}
+		if (json.id == 16){ //you joined room json.content
+		}
+		if (json.id == 17){ 
+				if (json.content.type == 1){
+				if (json.content.from.rank >= 1 ){rank = "[<span class='dev-"+json.content.from.rank +"''>Dev</span>]";}else{rank = "";}
+				if(json.content.command == 1){name = '<em>'+rank}else{name = '<strong>'+rank+json.content.from.username+':</strong> '}
+				$('#room-'+json.content.channel).append('<li id="linecount-'+servermessagecount+'">'+name+json.content.message+'</li>');
+				$('#linecount-'+servermessagecount).urlize();
+			}else{
+				$('#room-'+activeroom).append('<li id="linecount-'+servermessagecount+'">Server :'+json.content.message+'</li>');
+			     
+			     console.log(JSON.stringify(json));}
 			
 		}
-		KNOWN = [3,4,13,14,17];
+		
+		KNOWN = [3,4,12,13,14,15,16,17];
 		if ($.inArray(json.id, KNOWN) == -1){console.log(json);}
 		
 
@@ -130,6 +158,8 @@ function __WSTCPBridge(externalhost){
 }
 
 joinroom = function(roomtojoin){
+	activeroom = roomtojoin;
+	
 	chatserver.socket.send(JSON.stringify({id: 9, content: roomtojoin}));
 	$('#chatbox').append('<ul class="room active" id=room-'+roomtojoin+'></ul>');
 	$('#chatrooms').append('<li class="active" id=control-'+roomtojoin+'>'+roomtojoin+'</li>');
@@ -160,21 +190,36 @@ function login(){	// creates an object used for login and storage of data about 
 	$('#chat').fadeToggle(1250);
 	
 }
-$(document).ready(function() {
-	messageon = function(e){
+out = "";
+messageon = function(e){
 		command = 0;
+		idn = 8;
 		if ( $('#chat input').val() == ""){return false}
 		messagesend = $('#chat input').val();
-		
+		if ($('#chat input').val()[0] == '\/'){
+			if(true){alert('not implemeted');return false;}
+			idn = 18;
+			type = '';
+			commandarray = messagesend.split(' ');
+			command = commandarray[0];
+			cut = commandarray[0].length;
+			command = command.substring(1).toUpperCase();
+			
+			messagesend= messagesend.substr(cut);
+			console.log({id: idn, content:{type: 1, command: command, channel: activeroom, message: messagesend}});
 
+		}
+
+		
+		
+		string = JSON.stringify({type: 1, command: command, channel: activeroom, message: messagesend});
+		chatserver.socket.send(JSON.stringify({id: idn, content: string}));
+		autoscroll = 60;
 		$('#chat input').val("");
-		if (messagesend[0] == '/ '){command = 1}
-		string = JSON.stringify({type: 1, command: 0, channel: "DevPro-English", message: messagesend});
-		chatserver.socket.send(JSON.stringify({id: 8, content: string}));
-		autoscroll = 15;
-		
-		
+
 	};
+$(document).ready(function() {
+	
 	$('#chatform').click(function () {
 		autoscroll1();
 	});
@@ -183,4 +228,10 @@ $(document).ready(function() {
 	 autoscroll1();
 	 return false;
 	});
+	
 });// end ready document
+function usercount(){
+		c = $('#users li').length;
+		$('.usercount').html('users online:'+c);
+		return c;
+	}

@@ -190,7 +190,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
     width:100%;
 }
     
-    
+.usercount {
+float: right;
+margin-top: -25px;
+color: #555;
+
+} 
 
 #chatbox{float:left; width: 80%; height:100%; overflow-y: hidden;}
 #login {box-shadow: 0 0 50px 10px black;}
