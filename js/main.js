@@ -1,11 +1,8 @@
-
-var currentroom;
-
-
 autoscroll1 = function(){var elem = document.getElementById(currentroom);elem.scrollTop = elem.scrollHeight;};
 
 autoscroll = 0;
-window.setInterval(function() {sortdevs();sortusers}, 10000);
+window.setInterval(function() {sortdevs();sortusers();}, 10000);
+//window.setInterval(function() {chatserver.socket.send(JSON.stringify({id: 3, content : ''}))}, 60000); //ping
 window.setInterval(function() {
 	
   if( autoscroll >= 0  ){
@@ -23,18 +20,16 @@ $('input').click(function(){
 
 chatserver	= new __WSTCPBridge('ws://localhost:1337');
 //code execution
-var CurrentVersion = '193100' // https://github.com/Buttys/DevProLauncher/blob/master/Program.cs line 19
-var encodedPassword	= '1MY5XPo/v7dqOhWNi+faoQ==';
-var username 		= 'testBrowser';
-var UID				= '123456789123456789';
+var CurrentVersion  = '193100' // https://github.com/Buttys/DevProLauncher/blob/master/Program.cs line 19
 var serverlocation	= new __ServerLocator((function(){/*should system print connection code? */return true}));
 var chatserver;
 var login;
 var previousMessage;
 var linecount = 0
-var servermessagecount = 0;
-var bank = [];
+var servermessagecount = 0; // bugtracking array id
+var bank = []; //server message storage 
 var errorcatch; // error catch for debuging unprocessed json strings.
+var currentroom;
 
 function sortdevs (){
 	var mylist = $('#users');
@@ -62,21 +57,7 @@ $.each(listitems, function(idx, itm) { mylist.append(itm); });
 
 }
 function __ServerLocator (print) {
-	var serverlocation	= ''; 
-	var serverdetails	= [];
-	//$.get(serverlocation+CurrentVersion+'?callback=?', function(serverdatastring){
-		/* 7/18/2013  overwrite for offline */ serverdatastring = 'OK|91.250.84.118|8933|8911|8922'
-		serverdetails	= serverdatastring.split('|');
-		this.Client		= 'node ws-tcp-bridge --method=ws2tcp --lport=9999 --rhost='+serverdetails[1]+':'+serverdetails[3];
-		if (print = true){
-			
-			
-		}			
-	//});
-	Address		: serverdetails[1]; 
-	ChatPort	: serverdetails[2]; //Chatrooms -Login
-	GamePort	: serverdetails[3]; //Server Game listings -Login
-	DuelServer	: serverdetails[4]; //CLient to core connections
+	// get a json string on this domain with the server location.
 }
 activeroom ='DevPro-English';
 function __WSTCPBridge(externalhost){
@@ -95,10 +76,21 @@ function __WSTCPBridge(externalhost){
 		}catch(e){}
 		switch (json.id){
 			//--------------
+			case -1: {
+				$('#login').toggle();
+				$('#chat').fadeToggle(1250);
+				$('#chatbox').html('');
+				$('#chatrooms').html('');
+				login();
+			}
 			case 3: {
 				console.log('Login accepted');
 				chatserver.socket.send(JSON.stringify({id: 6, content: ''}));
 				joinroom(activeroom);
+			}break;
+			//--------------
+			case 10: {
+				//ping
 			}break;
 			//--------------
 			case 12: {
@@ -107,7 +99,7 @@ function __WSTCPBridge(externalhost){
 					$('#users')
 						.append('<li id="userlist-'+json.content[i].username+'"">'+rank+json.content[i].username+'</li>');
 				};
-				//sortdevs();
+				sortdevs();
 				sortusers();
 				usercount();
 			}break;
@@ -116,7 +108,7 @@ function __WSTCPBridge(externalhost){
 				if (json.content.rank >= 1 ){rank = "[<span class='dev-"+json.content.rank +"''>Dev</span>]";}else{rank = "";}
 				$('#users')
 				.append('<li id="userlist-'+json.content.username+'"">'+rank+json.content.username+'</li>');
-				//sortusers();
+				
 				usercount();
 			}break;
 			//--------------
@@ -144,10 +136,11 @@ function __WSTCPBridge(externalhost){
 					}break;
 					case 2 : {
 						$('#room-'+activeroom)
-							.append('<li id="linecount-'+servermessagecount+'">Server :'+json.content.message+'</li>');
+							.append('<li class="servermessage" id="linecount-'+servermessagecount+'">Server : '+json.content.message+'</li>');
 				    }break;
 				    default:{
-				    	console.log('Unknown ID:17 '+json);
+				    	console.log('Unknown ID:17');
+				    	console.log(json);
 				    }
 				}
 			}break;
@@ -192,6 +185,8 @@ function login(){	// creates an object used for login and storage of data about 
 		alert('Password can not be empty');
 		return false;
 	}
+	$.cookie('username', $('#username').val());
+	$.cookie('password', $('#password').val());
 	details		= JSON.stringify({id: 4, username:$('#username').val(), password:$('#password').val()}); // 4 = Login
 	//location	= new __ServerLocator();
 	
@@ -199,6 +194,7 @@ function login(){	// creates an object used for login and storage of data about 
 	
 	$('#login').toggle();
 	$('#chat').fadeToggle(1250);
+
 	
 }
 out = "";
@@ -220,8 +216,8 @@ messageon = function(e){
 			//if(true){alert('not implemeted');return false;}
 			command = 'KICK';
 			messagesend= messagesend.substr(6);
-			console.log(JSON.stringify({id: 18, content : {command : command, data : messagesend}}));
-			chatserver.socket.send(JSON.stringify({id: 18, content : {command : command, data : messagesend}}));
+			console.log(JSON.stringify({id: 18, content : {Command : command, data : messagesend}}));
+			chatserver.socket.send(JSON.stringify({id: 18, content : {Command : command, Data : messagesend}}));
 		}
 
 		
@@ -233,7 +229,9 @@ messageon = function(e){
 
 	};
 $(document).ready(function() {
-	
+	$('#username').val($.cookie('username'));
+	$('#password').val($.cookie('password'));
+	$('#username').val()
 	$('#chatform').click(function () {
 		autoscroll1();
 	});

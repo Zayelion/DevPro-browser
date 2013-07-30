@@ -193,8 +193,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 .usercount {
 float: right;
 margin-top: -25px;
-color: #555;
-
+color: #fff;
+text-shadow:0 0 3px #000;
+font-size: .8em;
 } 
 
 #chatbox{float:left; width: 80%; height:100%; overflow-y: hidden;}
@@ -242,7 +243,14 @@ margin-top: -12px; padding:0;}
 #chatrooms li {float:left; border:1px solid white;float: left;
     overflow: auto; padding:4px; }
 #chatbody {width:;}
+.servermessage {
+    background: rgba(255,0,0,.65);
+color: white;
+font-weight: bold;
+box-shadow: 0 0 21px white,0 0 59px 21px rgba(255,0,0,.5);
+border: none !important;
 
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

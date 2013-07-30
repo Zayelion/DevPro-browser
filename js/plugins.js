@@ -25,5 +25,21 @@ function pointer(read, write) {
   return { get value() { return read(); }, set value(v) { return write(v); } };
   //pointer(function() { return i; }, function(v) { i = v; });
 }
+jQuery.fn.urlize = function() {
+    if (this.length > 0) {
+        this.each(function(i, obj){
+            // making links active
+            var x = $(obj).html();
+            var list = x.match( /\b(http:\/\/|www\.|http:\/\/www\.)[^ <]{2,200}\b/g );
+            if (list) {
+                for ( i = 0; i < list.length; i++ ) {
+                    var prot = list[i].indexOf('http://') === 0 || list[i].indexOf('https://') === 0 ? '' : 'http://';
+                    x = x.replace( list[i], "<a target='_blank' href='" + prot + list[i] + "'>"+ list[i] + "</a>" );
+                }
 
+            }
+            $(obj).html(x);
+        });
+    }
+};
 // Place any jQuery/helper plugins in here.
