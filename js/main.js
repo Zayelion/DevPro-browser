@@ -103,6 +103,11 @@ function __WSTCPBridge(externalhost){
 				joinroom(activeroom);
 			}break;
 			//--------------
+			case 4:{
+				alert('Invalid Login, Try again.');
+				location.reload();
+			}break 
+			//--------------
 			case 10: {
 				//ping
 			}break;
@@ -226,10 +231,9 @@ function login(){	// creates an object used for login and storage of data about 
 	//location	= new __ServerLocator();
 	
 	chatserver.socket.send(details);
+	$('#wrapper').css({'width': '300%','overflow-x': 'auto'});
+	$('.container').toggle();
 	
-	$('#login').toggle();
-	$('#chat').fadeToggle(1250);
-	$('#duelrooms').fadeToggle(1250);
 
 
 	
