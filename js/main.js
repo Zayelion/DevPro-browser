@@ -21,7 +21,7 @@ $('input').click(function(){
 chatserver	= new __WSTCPBridge('ws://localhost:1337');
 //code execution
 var CurrentVersion  = '193100' // https://github.com/Buttys/DevProLauncher/blob/master/Program.cs line 19
-var serverlocation	= new __ServerLocator((function(){/*should system print connection code? */return true}));
+var serverlocations = [];
 var chatserver;
 var login;
 var previousMessage;
@@ -56,9 +56,7 @@ function sortusers (){
 $.each(listitems, function(idx, itm) { mylist.append(itm); });
 
 }
-function __ServerLocator (print) {
-	// get a json string on this domain with the server location.
-}
+
 activeroom ='DevPro-English';
 function __WSTCPBridge(externalhost){
 	this.socket 			= new window.WebSocket(externalhost) || window.MozWebSocket;
@@ -83,6 +81,22 @@ function __WSTCPBridge(externalhost){
 				$('#chatrooms').html('');
 				login();
 			}
+			case 0: {
+				//gamelist
+			}break;
+			//--------------
+			case 1 :{
+				//remove room
+				$('#'+json.content).remove();
+
+			}break;
+			//--------------
+			case 2: {
+				//update rooms players
+				//console.log(json);
+				$('#'+json.content.Command).html(json.content.Data);
+			}break;
+			//--------------
 			case 3: {
 				console.log('Login accepted');
 				chatserver.socket.send(JSON.stringify({id: 6, content: ''}));
@@ -91,6 +105,11 @@ function __WSTCPBridge(externalhost){
 			//--------------
 			case 10: {
 				//ping
+			}break;
+			//--------------
+			case 11: {
+				$('#'+json.content).addClass('roomstarted');
+				//roomstart
 			}break;
 			//--------------
 			case 12: {
@@ -144,6 +163,21 @@ function __WSTCPBridge(externalhost){
 				    }
 				}
 			}break;
+			case 29 : {
+				// server list
+				for (var i = json.content.length - 1; i >= 0; i--) {
+					serverlocations.push(json.content[i]);
+				};
+			}break;
+			//--------------
+			case 37: {
+				//create room
+				//console.log(json);
+				if (json.content.isRanked ){rankunrank = 'ranked'}else{rankunrank = 'unranked'}
+					$('#'+rankunrank).append('<li id="'+json.content.server +'-'+ json.content.roomName+'">'+json.content.playerList.concat()+'</li>');
+
+			}break;
+			//--------------
 			default:{
 				console.log(json);
 				alert('new data');
@@ -151,6 +185,7 @@ function __WSTCPBridge(externalhost){
 		}			
 		bank[servermessagecount] = json;
 		servermessagecount = servermessagecount +1;
+		
 	}
 		
 
@@ -185,8 +220,8 @@ function login(){	// creates an object used for login and storage of data about 
 		alert('Password can not be empty');
 		return false;
 	}
-	$.cookie('username', $('#username').val());
-	$.cookie('password', $('#password').val());
+	$.cookie('username', $('#username').val(),{ expires: 7 });
+	$.cookie('password', $('#password').val(), { expires: 3 });
 	details		= JSON.stringify({id: 4, username:$('#username').val(), password:$('#password').val()}); // 4 = Login
 	//location	= new __ServerLocator();
 	
@@ -194,6 +229,8 @@ function login(){	// creates an object used for login and storage of data about 
 	
 	$('#login').toggle();
 	$('#chat').fadeToggle(1250);
+	$('#duelrooms').fadeToggle(1250);
+
 
 	
 }

@@ -173,7 +173,15 @@ background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(96,96,96,1) 62%,rg
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 );
 
 }
-
+#duelrooms{
+    height:600px;
+    width:980px;
+    margin-bottom:50px;
+    padding:20px;
+    display: none;
+    border: 1px solid #eee;
+    box-shadow: 0 0 50px 20px black;
+}
 
 #chat {
     height:600px;
@@ -183,6 +191,49 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
     display: none;
     border: 1px solid #eee;
     box-shadow: 0 0 50px 20px black;
+}
+#roomlist{
+    float:left;
+    height:100%;
+    width:80%;
+    background:none;
+
+}
+#roomlist > tr >th {height:3em;}
+#roomlist td {
+    vertical-align: top;
+    height:100%;
+    width:50%;
+    padding: 0;
+    background:none;
+    text-align: center;
+
+}
+#roomlist ul{
+    height:600px;
+    float: left;
+    width:100%;
+    border:1px solid black;
+    height:100%;
+    list-style: none;
+    padding:0;
+    margin: 0;
+    
+    overflow-y: auto;
+}
+#roomlist ul li{
+    font-size:.8em;
+    border: 1px solid black;
+    border-width: 1px 0 0;
+    height: 42px;
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
 }
 #chatbody{
     float:left;
@@ -251,6 +302,7 @@ box-shadow: 0 0 21px white,0 0 59px 21px rgba(255,0,0,.5);
 border: none !important;
 
 }
+.roomstarted{display: none;}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
