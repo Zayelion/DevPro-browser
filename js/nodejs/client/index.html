@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <title>DevPro</title>
+        <meta charset="utf-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+$(function () {
+
+    var content = $('#content');
+    var login = $('#login');
+    
+    window.WebSocket = window.WebSocket || window.MozWebSocket;
+
+    login.submit(function () {
+    
+        login.hide();
+        content.html('<p><strong>Connecting to the server...</strong></p>');
+    
+        var connection = new WebSocket('ws://127.0.0.1:1337');
+
+        connection.onopen = function () {
+            content.prepend('<p><strong>Connected, authenticating...</strong></p>');
+            connection.send(JSON.stringify({id: 4, username:$('#username').val(), password:$('#password').val()})); // 4 = Login
+        };
+
+        connection.onerror = function (error) {
+            content.prepend("<p><strong>Error. Is the node.js server offline?</strong></p>");
+        };
+
+        connection.onmessage = function (message) {
+            var json = JSON.parse(message.data);
+            switch (json.id)
+            {
+                case -1: // Remote connection problem
+                    content.prepend("<p><strong>Error. Is the chat server offline?</strong></p>");
+                    connection.close();
+                    break;
+                case 3: // LoginAccepted
+                    content.prepend("<p><strong>Authenticated successfully!</strong></p>");
+                    connection.send(JSON.stringify({id: 9, content: 'DevPro-English'})); // 9 = JoinChannel
+                    break;
+                case 4: // LoginFailed
+                    content.prepend("<p><strong>Authenticated failed.</strong></p>");
+                    break;
+                case 16: // JoinChannelAccept
+                    content.prepend("<p><strong>Channel " + json.content + " joined.</strong></p>");
+                    break;
+                default: // Another packet
+                    content.prepend('<p>ID: ' + json.id + '<br />' + json.content + '</p>');
+            }
+        };
+        
+        return false;
+    });
+});
+        </script>
+    </head>
+    <body>
+        <form id="login" >
+            Username: <input type="text" id="username" name="username" /><br />
+            Password: <input type="password" id="password" name="password" /><br />
+            <input type="submit" value="Connect">
+        </form>
+        <div id="content"></div>
+    </body>
+</html>
