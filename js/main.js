@@ -18,7 +18,7 @@ $('input').click(function(){
 
 });
 
-chatserver	= new __WSTCPBridge('ws://localhost:1337');
+chatserver	= new __WSTCPBridge('ws://198.167.137.127:1337');
 //code execution
 var CurrentVersion  = '193100' // https://github.com/Buttys/DevProLauncher/blob/master/Program.cs line 19
 var serverlocations = [];
@@ -253,13 +253,13 @@ messageon = function(e){
 			cut = commandarray[0].length;
 			messagesend= messagesend.substr(cut);
 		}
-		if (messagesend.substr(0,5) == '/kick'){
+		/*if (messagesend.substr(0,5) == '/kick'){
 			//if(true){alert('not implemeted');return false;}
 			command = 'KICK';
 			messagesend= messagesend.substr(6);
 			console.log(JSON.stringify({id: 18, content : {Command : command, data : messagesend}}));
 			chatserver.socket.send(JSON.stringify({id: 18, content : {Command : command, Data : messagesend}}));
-		}
+		}*/
 
 		
 		
